@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Jesys Solutions — Software hecho para tu negocio{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================ -->
+<!-- 1. HERO                                                       -->
+<!-- ============================================================ -->
+<section id="inicio" class="hero min-h-[80vh] px-4 lg:px-8">
+    <div class="hero-content text-center max-w-4xl">
+        <div class="flex flex-col items-center gap-8">
+            <div class="badge badge-primary badge-lg gap-2 px-4 py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                Desarrollo de software a medida
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+                {{ cta.hero_title }}
+            </h1>
+            <p class="text-lg sm:text-xl text-base-content/70 max-w-2xl leading-relaxed">
+                {{ cta.hero_subtitle }}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#contacto" class="btn btn-primary btn-lg">{{ cta.hero_btn_primary }}</a>
+                <a href="#servicios" class="btn btn-outline btn-lg">{{ cta.hero_btn_secondary }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 2. PROPUESTA DE VALOR                                         -->
+<!-- ============================================================ -->
+<section class="py-20 px-4 lg:px-8 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Una solución diseñada para tu negocio</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for prop in value_props %}
+        <div class="card bg-base-200/50 border border-base-300/50 hover:border-primary/30 transition-colors">
+            <div class="card-body">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                    {% if prop.icon == "tool" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {% elif prop.icon == "bolt" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    {% elif prop.icon == "database" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    {% elif prop.icon == "globe" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                    {% elif prop.icon == "chart" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    {% elif prop.icon == "handshake" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {% endif %}
+                </div>
+                <h3 class="card-title text-lg">{{ prop.title }}</h3>
+                <p class="text-sm text-base-content/70 leading-relaxed">{{ prop.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 3. SERVICIOS                                                  -->
+<!-- ============================================================ -->
+<section id="servicios" class="py-20 px-4 lg:px-8 bg-base-200/30">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold">Servicios</h2>
+            <p class="text-base-content/60 mt-3 max-w-xl mx-auto">Todo lo que necesitas para llevar tu proyecto de software a producción.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for service in services %}
+            <div class="card bg-base-100 border border-base-300/50 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-lg">{{ service.title }}</h3>
+                    <p class="text-sm text-base-content/70 leading-relaxed">{{ service.description }}</p>
+                    <div class="flex flex-wrap gap-1.5 mt-2">
+                        {% for example in service.examples %}
+                        <span class="badge badge-outline badge-sm">{{ example }}</span>
+                        {% endfor %}
+                    </div>
+                    {% if service.note %}
+                    <div class="alert alert-warning mt-3 py-2 text-xs">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                        <span>{{ service.note }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 4. MODELO DE CONTRATACIÓN                                     -->
+<!-- ============================================================ -->
+<section class="py-20 px-4 lg:px-8 max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Un modelo simple y transparente</h2>
+        <p class="text-base-content/60 mt-3">El cliente paga únicamente por lo que necesita.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+        {% for step in hiring_model %}
+        <div class="card bg-base-200/50 border border-base-300/50">
+            <div class="card-body">
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl font-bold text-primary/20 leading-none mt-1">{{ step.number }}</div>
+                    <div>
+                        <h3 class="font-bold text-lg">{{ step.title }}</h3>
+                        <p class="text-sm text-base-content/70 mt-1 leading-relaxed">{{ step.description }}</p>
+                        {% if step.price_note %}
+                        <div class="badge badge-primary/10 text-primary border-primary/20 mt-3">{{ step.price_note }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <p class="text-center text-sm text-base-content/50 mt-8 italic">{{ maintenance_note }}</p>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 5. EJEMPLO DE PROYECTO                                        -->
+<!-- ============================================================ -->
+<section class="py-20 px-4 lg:px-8 bg-base-200/30">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">¿Qué puede incluir tu proyecto?</h2>
+        <p class="text-base-content/60 mb-10 max-w-2xl mx-auto">Cada proyecto es diferente. Podemos encargarnos únicamente del desarrollo o ayudarte también con la infraestructura necesaria para ponerlo en producción.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+            {% for item in project_example %}
+            <div class="badge badge-lg bg-base-100 border-base-300 px-5 py-4 text-sm font-medium">
+                {% if not forloop.last %}
+                {{ item }}
+                <span class="text-primary font-bold ml-2">+</span>
+                {% else %}
+                {{ item }}
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 6. PROCESO DE TRABAJO                                         -->
+<!-- ============================================================ -->
+<section id="como-trabajamos" class="py-20 px-4 lg:px-8 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">De una idea a una solución funcionando</h2>
+    </div>
+    <ul class="steps steps-vertical lg:steps-horizontal w-full">
+        {% for step in process_steps %}
+        <li class="step step-primary" data-content="{{ step.number }}">
+            <div class="text-left lg:text-center">
+                <div class="font-bold text-sm mt-2">{{ step.title }}</div>
+                <div class="text-xs text-base-content/60 max-w-[140px] lg:max-w-[160px]">{{ step.description }}</div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 7. TIPOS DE SOLUCIONES                                        -->
+<!-- ============================================================ -->
+<section id="soluciones" class="py-20 px-4 lg:px-8 bg-base-200/30">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">¿Qué podemos desarrollar?</h2>
+        <p class="text-base-content/60 mb-10">Estas son algunas de las soluciones que podemos construir. No nos limitamos a esta lista.</p>
+        <div class="flex flex-wrap justify-center gap-2.5">
+            {% for solution in solution_types %}
+            <span class="badge badge-outline badge-lg px-5 py-3">{{ solution }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 8. TECNOLOGÍA                                                 -->
+<!-- ============================================================ -->
+<section class="py-20 px-4 lg:px-8 max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold">Tecnología que se adapta a tu proyecto</h2>
+        <p class="text-base-content/60 mt-3">Elegimos las herramientas adecuadas para cada caso.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3">
+        {% for tech in technologies %}
+        <div class="kbd kbd-lg">{{ tech }}</div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 9. MANTENIMIENTO MENSUAL                                      -->
+<!-- ============================================================ -->
+<section id="mantenimiento" class="py-20 px-4 lg:px-8 bg-base-200/30">
+    <div class="max-w-3xl mx-auto">
+        <div class="card bg-base-100 border border-base-300/50 shadow-sm overflow-hidden">
+            <div class="card-body p-8 lg:p-12">
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="flex-1 text-center lg:text-left">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3">Tu aplicación no termina cuando la ponemos en producción.</h2>
+                        <p class="text-base-content/70 leading-relaxed">Podemos encargarnos del mantenimiento técnico de tu aplicación para que puedas concentrarte en tu negocio.</p>
+                    </div>
+                    <div class="flex-shrink-0 text-center bg-primary/5 rounded-2xl p-6 border border-primary/10">
+                        <div class="text-sm text-base-content/50 mb-1">Desde</div>
+                        <div class="text-4xl font-bold text-primary">{{ maintenance_price }}</div>
+                        <div class="text-sm text-base-content/50">{{ maintenance_currency }} / mes</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="grid sm:grid-cols-2 gap-2">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Corrección de errores
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Mantenimiento técnico
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Actualizaciones
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Revisiones
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Soporte básico
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Actualizaciones de seguridad
+                    </div>
+                </div>
+                <div class="alert alert-warning mt-4 py-2 text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <span>Nuevas funcionalidades, módulos y cambios importantes se cotizan por separado.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 10. FAQ                                                       -->
+<!-- ============================================================ -->
+<section class="py-20 px-4 lg:px-8 max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Preguntas frecuentes</h2>
+    </div>
+    <div class="space-y-2">
+        {% for faq in faq_items %}
+        <div class="collapse collapse-arrow bg-base-200/50 border border-base-300/50">
+            <input type="radio" name="faq" {% if forloop.first %}checked{% endif %} />
+            <div class="collapse-title font-medium">{{ faq.question }}</div>
+            <div class="collapse-content">
+                <p class="text-sm text-base-content/70 leading-relaxed">{{ faq.answer }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 11. CTA FINAL                                                 -->
+<!-- ============================================================ -->
+<section class="py-20 px-4 lg:px-8 bg-primary/5">
+    <div class="hero">
+        <div class="hero-content text-center max-w-2xl">
+            <div class="flex flex-col items-center gap-6">
+                <h2 class="text-3xl sm:text-4xl font-bold">{{ cta.final_title }}</h2>
+                <p class="text-lg text-base-content/70">{{ cta.final_subtitle }}</p>
+                <a href="#contacto" class="btn btn-primary btn-lg">{{ cta.final_btn }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 12. CONTACTO                                                  -->
+<!-- ============================================================ -->
+<section id="contacto" class="py-20 px-4 lg:px-8 bg-base-200/30">
+    <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl sm:text-4xl font-bold">Cuéntanos sobre tu proyecto</h2>
+            <p class="text-base-content/60 mt-3">Completa el formulario y te contactaremos para conocerte mejor.</p>
+        </div>
+        <div class="card bg-base-100 border border-base-300/50 shadow-sm">
+            <div class="card-body p-6 lg:p-8">
+                <form method="post" action="#contacto" class="flex flex-col gap-4">
+                    {% csrf_token %}
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="label text-sm font-medium" for="{{ form.nombre.id_for_label }}">Nombre *</label>
+                            {{ form.nombre }}
+                            {% if form.nombre.errors %}
+                            <span class="text-error text-xs mt-1">{{ form.nombre.errors.0 }}</span>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <label class="label text-sm font-medium" for="{{ form.empresa.id_for_label }}">Empresa</label>
+                            {{ form.empresa }}
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="label text-sm font-medium" for="{{ form.email.id_for_label }}">Correo electrónico *</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                            <span class="text-error text-xs mt-1">{{ form.email.errors.0 }}</span>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <label class="label text-sm font-medium" for="{{ form.telefono.id_for_label }}">Teléfono</label>
+                            {{ form.telefono }}
+                        </div>
+                    </div>
+                    <div>
+                        <label class="label text-sm font-medium" for="{{ form.necesidad.id_for_label }}">¿Qué necesitas? *</label>
+                        {{ form.necesidad }}
+                    </div>
+                    <div>
+                        <label class="label text-sm font-medium" for="{{ form.mensaje.id_for_label }}">Cuéntanos más *</label>
+                        {{ form.mensaje }}
+                        {% if form.mensaje.errors %}
+                        <span class="text-error text-xs mt-1">{{ form.mensaje.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                    <button type="button" onclick="enviarWhatsApp()" class="btn btn-primary btn-block mt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Enviar solicitud
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    var CONTACT_WHATSAPP = "{{ contact_info.whatsapp }}";
+
+    function enviarWhatsApp() {
+        var nombre = document.getElementById('id_nombre').value.trim();
+        var email = document.getElementById('id_email').value.trim();
+        var necesidad = document.getElementById('id_necesidad').value;
+        var mensaje = document.getElementById('id_mensaje').value.trim();
+
+        if (!nombre || !email || !necesidad || !mensaje) {
+            alert('Por favor completa los campos obligatorios.');
+            return;
+        }
+
+        if (!CONTACT_WHATSAPP) {
+            alert('El canal de WhatsApp no está configurado todavía.');
+            return;
+        }
+
+        var empresa = document.getElementById('id_empresa').value.trim();
+        var telefono = document.getElementById('id_telefono').value.trim();
+
+        var texto = 'Hola, soy ' + nombre;
+        if (empresa) texto += '\nEmpresa: ' + empresa;
+        texto += '\nCorreo: ' + email;
+        if (telefono) texto += '\nTeléfono: ' + telefono;
+        texto += '\nNecesito: ' + necesidad;
+        texto += '\nMensaje: ' + mensaje;
+
+        window.open('https://wa.me/' + CONTACT_WHATSAPP + '?text=' + encodeURIComponent(texto), '_blank');
+    }
+</script>
+{% endblock %}

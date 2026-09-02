@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jesys Solutions{% endblock %}</title>
+    <meta name="description" content="Desarrollo de software y aplicaciones web a medida para empresas y negocios.">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-base-100 text-base-content antialiased">
+
+    <!-- Navbar -->
+    <div class="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-300/50 px-4 lg:px-8">
+        <div class="navbar-start">
+            <a href="#inicio" class="flex items-center gap-2">
+                <img src="{% static 'img/logo_jesys.png' %}" alt="Jesys Solutions" class="h-9 w-9 sm:h-10 sm:w-10 rounded-lg object-cover">
+                <span class="hidden sm:inline text-xl font-bold tracking-tight">
+                    <span class="text-primary">Jesys</span> Solutions
+                </span>
+            </a>
+        </div>
+
+        <!-- Desktop nav -->
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal gap-1 text-sm font-medium">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+                <li><a href="#soluciones">Soluciones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-end gap-2">
+            <a href="#contacto" class="btn btn-primary btn-sm hidden sm:inline-flex">Solicitar cotización</a>
+            <!-- Mobile menu button -->
+            <label for="mobile-nav" class="btn btn-ghost btn-circle lg:hidden" aria-label="Menú">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </label>
+        </div>
+    </div>
+
+    <!-- Mobile nav drawer -->
+    <input id="mobile-nav" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-side z-50 lg:hidden">
+        <label for="mobile-nav" aria-label="Cerrar menú" class="drawer-overlay"></label>
+        <div class="menu bg-base-100 min-h-full w-72 p-6 gap-1">
+            <div class="flex justify-between items-center mb-4">
+                <a href="#inicio" class="flex items-center gap-2">
+                    <img src="{% static 'img/logo_jesys.png' %}" alt="Jesys Solutions" class="h-8 w-8 rounded-lg object-cover">
+                    <span class="text-lg font-bold"><span class="text-primary">Jesys</span> Solutions</span>
+                </a>
+                <label for="mobile-nav" class="btn btn-ghost btn-circle btn-sm" aria-label="Cerrar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </label>
+            </div>
+            <li><a href="#inicio" class="text-base">Inicio</a></li>
+            <li><a href="#servicios" class="text-base">Servicios</a></li>
+            <li><a href="#como-trabajamos" class="text-base">Cómo trabajamos</a></li>
+            <li><a href="#soluciones" class="text-base">Soluciones</a></li>
+            <li><a href="#contacto" class="text-base">Contacto</a></li>
+            <div class="mt-4">
+                <a href="#contacto" class="btn btn-primary btn-block">Solicitar cotización</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-horizontal sm:footer-horizontal bg-base-200 text-base-content p-8 lg:p-12">
+        <nav>
+            <h6 class="footer-title">Jesys Solutions</h6>
+            <p class="text-sm opacity-70 max-w-xs">Desarrollo de software y aplicaciones web a medida para empresas y negocios.</p>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Navegación</h6>
+            <a href="#inicio" class="link link-hover text-sm">Inicio</a>
+            <a href="#servicios" class="link link-hover text-sm">Servicios</a>
+            <a href="#como-trabajamos" class="link link-hover text-sm">Cómo trabajamos</a>
+            <a href="#soluciones" class="link link-hover text-sm">Soluciones</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Servicios</h6>
+            <a href="#servicios" class="link link-hover text-sm">Desarrollo de software</a>
+            <a href="#servicios" class="link link-hover text-sm">Implementación</a>
+            <a href="#servicios" class="link link-hover text-sm">Automatización</a>
+            <a href="#mantenimiento" class="link link-hover text-sm">Mantenimiento</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Contacto</h6>
+            <a href="#contacto" class="link link-hover text-sm">Solicitar cotización</a>
+            {% if contact_info.whatsapp %}
+            <a href="https://wa.me/{{ contact_info.whatsapp }}" target="_blank" rel="noopener" class="link link-hover text-sm">WhatsApp</a>
+            {% endif %}
+            <a href="mailto:{{ contact_info.email }}" class="link link-hover text-sm">{{ contact_info.email }}</a>
+        </nav>
+    </footer>
+
+    <footer class="footer footer-horizontal sm:footer-horizontal bg-base-200 border-t border-base-300/50 px-8 py-4">
+        <aside class="text-sm opacity-60">
+            © {{ current_year|default:"2026" }} Jesys Solutions. Todos los derechos reservados.
+        </aside>
+    </footer>
+
+    <!-- Smooth scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('mobile-nav').checked = false;
+                }
+            });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

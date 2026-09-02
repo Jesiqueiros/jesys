@@ -1,0 +1,36 @@
+/* ============================================================
+   Jesys Solutions — Custom styles
+   Minimal overrides; Tailwind + daisyUI handle the rest.
+   ============================================================ */
+
+/* Smooth scroll override */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+/* Hero section visual */
+.hero {
+    background:
+        radial-gradient(ellipse at 20% 50%, oklch(var(--p) / 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, oklch(var(--p) / 0.02) 0%, transparent 50%);
+}
+
+/* Subtle fade-in animation for sections */
+.fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Steps horizontal on large screens: limit text width */
+@media (min-width: 1024px) {
+    .steps-horizontal .step {
+        flex-direction: column;
+    }
+}
