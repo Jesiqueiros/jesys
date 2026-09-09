@@ -288,6 +288,6 @@ CTA = {
 
 CONTACT_INFO = {
     "whatsapp": settings.PERSONAL_NUMBER,
-    "email": "jesiqueiros@hotmail.com",
+    "email": "info@jesyssolutions.com",
     "social": {},
 }
