@@ -32,12 +32,12 @@ if ENVIRONMENT == "development":
 elif ENVIRONMENT == "production":
     ALLOWED_HOSTS = [
         "jesys.up.railway.app",
-        "jesyssolutions"
+        "jesyssolutions.com"
     ]
 
     CSRF_TRUSTED_ORIGINS = [
         "https://jesys.up.railway.app",
-        "https://jesyssolutions"
+        "https://jesyssolutions.com"
     ]
 
     SECURE_SSL_REDIRECT = True
