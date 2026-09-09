@@ -1,258 +1,291 @@
 # ============================================================
 # Jesys Solutions — Contenido configurable
-# Modificar este archivo para actualizar textos, precios y
-# servicios sin tocar templates ni vistas.
+# Textos, precios y servicios de la página principal.
 # ============================================================
 
 from django.conf import settings
 
+
 # --- Mantenimiento ---------------------------------------------------
-MAINTENANCE_PRICE = "$25"
-MAINTENANCE_CURRENCY = "USD"
+
+MAINTENANCE_PRICE = "$500"
+MAINTENANCE_CURRENCY = "MXN"
 MAINTENANCE_NOTE = "El costo final depende de las características y necesidades de cada proyecto."
 
+
 # --- Propuesta de valor ----------------------------------------------
+
 VALUE_PROPOSITIONS = [
     {
-        "title": "A tu medida",
-        "description": "No necesitas adaptar tu negocio a un software genérico. Desarrollamos la solución alrededor de tus procesos.",
+        "title": "Hecho para ti",
+        "description": "Cada negocio trabaja de manera diferente. Creamos una solución que se adapte a la forma en que haces las cosas, no al revés.",
         "icon": "tool",
     },
     {
-        "title": "Automatización",
-        "description": "Reducimos tareas repetitivas mediante automatizaciones e integraciones.",
-        "icon": "bolt",
-    },
-    {
-        "title": "Información centralizada",
-        "description": "Toda la información importante de tu negocio puede estar disponible desde un solo sistema.",
+        "title": "Ponemos orden",
+        "description": "¿Tienes información en Excel, libretas, WhatsApp y mil lugares más? Te ayudamos a organizarla y tenerla disponible en un solo lugar.",
         "icon": "database",
     },
     {
-        "title": "Accesible desde cualquier lugar",
-        "description": "Aplicaciones web disponibles desde computadora, tablet o teléfono.",
+        "title": "Menos trabajo repetitivo",
+        "description": "Identificamos las tareas que te quitan tiempo y buscamos la forma de hacerlas más sencillas y automáticas.",
+        "icon": "bolt",
+    },
+    {
+        "title": "Todo en un solo lugar",
+        "description": "Administra la información de tu negocio desde una misma aplicación, estés en la computadora, tablet o teléfono.",
         "icon": "globe",
     },
     {
-        "title": "Escalable",
-        "description": "La aplicación puede evolucionar conforme crece tu negocio.",
+        "title": "Crece contigo",
+        "description": "La solución puede crecer conforme crece tu negocio. Si mañana necesitas algo nuevo, podemos agregarlo.",
         "icon": "chart",
     },
     {
-        "title": "Acompañamiento",
-        "description": "No desaparecemos después de entregar el sistema. Podemos encargarnos del mantenimiento y evolución de la aplicación.",
+        "title": "Seguimos contigo",
+        "description": "Después de entregar el sistema seguimos disponibles para ayudarte con cambios, mejoras y mantenimiento.",
         "icon": "handshake",
     },
 ]
 
+
 # --- Servicios -------------------------------------------------------
+
 SERVICES = [
     {
-        "title": "Desarrollo de software",
-        "description": "Desarrollo de aplicaciones web personalizadas según las necesidades y procesos de cada negocio.",
+        "title": "Organiza tu negocio",
+        "description": "Te ayudamos a poner en orden la información y los procesos de tu negocio para que puedas tener todo más claro y bajo control.",
         "examples": [
-            "Sistemas administrativos",
-            "Gestión de clientes",
-            "Control de proyectos",
-            "Sistemas de citas",
+            "Clientes",
+            "Proyectos",
+            "Citas",
             "Inventarios",
             "Cotizaciones",
+            "Pagos",
+            "Gastos",
             "Reportes",
-            "Dashboards",
-            "Gestión financiera",
-            "Sistemas internos",
+            "Información interna",
+            "Seguimiento de actividades",
         ],
     },
     {
-        "title": "Implementación y despliegue",
-        "description": "Nos encargamos de llevar la aplicación desde desarrollo hasta producción.",
+        "title": "Administra todo en un solo lugar",
+        "description": "Creamos un espacio donde puedas consultar, registrar y administrar lo que pasa en tu negocio sin tener que estar buscando información por todos lados.",
         "examples": [
-            "Configuración del servidor",
-            "Despliegue de la aplicación",
-            "Configuración de base de datos",
-            "Dominio",
-            "SSL",
-            "Variables de entorno",
-            "Configuración de servicios",
+            "Control de clientes",
+            "Seguimiento de proyectos",
+            "Agenda de citas",
+            "Control de inventario",
+            "Registro de ventas",
+            "Cotizaciones",
+            "Control de gastos",
+            "Reportes",
+            "Paneles de control",
         ],
     },
     {
-        "title": "Integraciones y automatización",
-        "description": "Integración con servicios externos para automatizar procesos.",
+        "title": "Hacemos tu trabajo más sencillo",
+        "description": "Buscamos qué tareas puedes dejar de hacer manualmente para ahorrarte tiempo y reducir errores.",
+        "examples": [
+            "Avisos y recordatorios",
+            "Envío de información",
+            "Generación de reportes",
+            "Registro de información",
+            "Seguimiento de actividades",
+            "Procesos repetitivos",
+            "Comunicación con clientes",
+        ],
+    },
+    {
+        "title": "Conecta las herramientas que ya utilizas",
+        "description": "Si utilizas diferentes servicios para trabajar, podemos buscar la manera de conectarlos para que la información fluya entre ellos.",
         "examples": [
             "WhatsApp",
             "Correo electrónico",
-            "APIs",
             "Almacenamiento de archivos",
-            "Servicios de terceros",
-            "Automatizaciones",
+            "Formularios",
+            "Sistemas existentes",
+            "Servicios que ya utilizas",
         ],
     },
     {
-        "title": "Mantenimiento",
-        "description": "Servicio recurrente para mantener la aplicación funcionando correctamente.",
+        "title": "Lo ponemos en marcha",
+        "description": "Nos encargamos de dejar tu sistema listo para que puedas comenzar a utilizarlo. Tú preocúpate por tu negocio, nosotros por ponerlo a funcionar.",
+        "examples": [
+            "Puesta en marcha",
+            "Configuración",
+            "Migración de información",
+            "Preparación del sistema",
+            "Dominio",
+            "Acompañamiento inicial",
+        ],
+    },
+    {
+        "title": "Seguimos después de entregarlo",
+        "description": "Tu negocio va cambiando y el sistema también puede hacerlo. Podemos ayudarte a mantenerlo, corregir problemas y agregar nuevas funciones cuando las necesites.",
         "examples": [
             "Corrección de errores",
-            "Actualizaciones",
-            "Revisiones",
-            "Mantenimiento técnico",
-            "Soporte básico",
-            "Actualizaciones de seguridad",
+            "Mejoras",
+            "Cambios",
+            "Nuevas funciones",
+            "Mantenimiento",
+            "Soporte",
         ],
         "note": "Las nuevas funcionalidades y modificaciones importantes se cotizan por separado.",
     },
+]
+
+# -----------------------   PRICES AND PLANS TO CLIENTES ----------------------
+DEVELOPMENT_PLANS = [
     {
-        "title": "Infraestructura",
-        "description": "Configuración y administración de los servicios necesarios para ejecutar la aplicación.",
-        "examples": [
-            "Hosting",
-            "Bases de datos",
-            "Almacenamiento",
-            "Servicios de automatización",
-            "Dominios",
-            "Otros servicios necesarios",
+        "name": "Base",
+        "price": "$3,000",
+        "subtitle": "Para poner orden.",
+        "description": "Para organizar información y procesos sencillos en un solo lugar.",
+        "features": [
+            "Información organizada",
+            "Clientes y registros",
+            "Formularios",
+            "Búsqueda de información",
+            "Panel administrativo",
+            "Procesos básicos",
         ],
-    },
-]
-
-# --- Modelo de contratación ------------------------------------------
-HIRING_MODEL = [
-    {
-        "number": "01",
-        "title": "Desarrollo",
-        "description": "Analizamos la necesidad y desarrollamos la aplicación.",
-        "price_note": "Precio único según complejidad.",
+        "featured": False,
     },
     {
-        "number": "02",
-        "title": "Implementación",
-        "description": "Configuramos y desplegamos la aplicación para dejarla lista para utilizarse.",
-        "price_note": "Se cotiza según los servicios necesarios.",
+        "name": "Plus",
+        "price": "$6,000",
+        "subtitle": "Para administrar y controlar.",
+        "description": "Para manejar diferentes áreas de tu negocio desde un mismo lugar.",
+        "features": [
+            "Todo lo de Base",
+            "Diferentes áreas",
+            "Clientes, proveedores o proyectos",
+            "Seguimiento de procesos",
+            "Usuarios y permisos",
+            "Reportes y paneles",
+        ],
+        "featured": True,
     },
     {
-        "number": "03",
-        "title": "Servicios adicionales",
-        "description": "Si el proyecto necesita servicios externos como hosting, almacenamiento, WhatsApp, dominios, etc., se configuran según las necesidades del proyecto.",
-        "price_note": "",
+        "name": "Max",
+        "price": "$9,000",
+        "subtitle": "Para automatizar y hacer más.",
+        "description": "Para soluciones más completas que además reduzcan trabajo manual.",
+        "features": [
+            "Todo lo de Plus",
+            "Automatización de tareas",
+            "Generación de documentos",
+            "Cotizaciones personalizadas",
+            "Notificaciones",
+            "Integraciones y procesos personalizados",
+        ],
+        "featured": False,
     },
-    {
-        "number": "04",
-        "title": "Mantenimiento",
-        "description": "Una vez puesta en producción, el cliente puede contratar mantenimiento mensual.",
-        "price_note": f"Desde {MAINTENANCE_PRICE} {MAINTENANCE_CURRENCY}/mes",
-    },
-]
-
-# --- Ejemplo de proyecto ---------------------------------------------
-PROJECT_EXAMPLE = [
-    "Desarrollo de aplicación",
-    "Implementación",
-    "Base de datos",
-    "Almacenamiento",
-    "Automatizaciones",
-    "Mantenimiento",
 ]
 
 # --- Proceso de trabajo ----------------------------------------------
+
 PROCESS_STEPS = [
     {
         "number": "01",
-        "title": "Conocemos tu necesidad",
-        "description": "Entendemos tu negocio, tus procesos y el problema que quieres resolver.",
+        "title": "Nos cuentas qué pasa",
+        "description": "Cuéntanos cómo trabajas, qué tienes actualmente y qué es lo que quieres mejorar. No necesitas saber de tecnología.",
     },
     {
         "number": "02",
-        "title": "Definimos la solución",
-        "description": "Determinamos qué debe hacer la aplicación y qué tecnología o servicios necesita.",
+        "title": "Entendemos el problema",
+        "description": "Revisamos cómo manejas tu información y tus procesos para encontrar qué podemos organizar, simplificar o mejorar.",
     },
     {
         "number": "03",
-        "title": "Desarrollamos",
-        "description": "Construimos la aplicación de forma iterativa.",
+        "title": "Proponemos una solución",
+        "description": "Te explicamos qué podemos hacer y cómo funcionaría, de una forma clara y sin tecnicismos innecesarios.",
     },
     {
         "number": "04",
-        "title": "Implementamos",
-        "description": "Configuramos la infraestructura y ponemos el sistema en producción.",
+        "title": "Lo construimos contigo",
+        "description": "Desarrollamos la solución y vamos revisando contigo que realmente resuelva lo que necesitas.",
     },
     {
         "number": "05",
-        "title": "Mantenemos y evolucionamos",
-        "description": "Seguimos disponibles para mantenimiento y nuevas funcionalidades.",
+        "title": "Lo ponemos a trabajar",
+        "description": "Dejamos todo listo para que puedas comenzar a utilizarlo y seguimos disponibles para ayudarte después.",
     },
 ]
 
+
 # --- Tipos de soluciones ---------------------------------------------
+
 SOLUTION_TYPES = [
-    "Sistemas administrativos",
     "Gestión de clientes",
-    "Sistemas de citas",
     "Control de proyectos",
     "Cotizaciones",
+    "Sistemas de citas",
     "Inventarios",
-    "Dashboards",
+    "Control de pagos",
+    "Control de gastos",
     "Reportes",
+    "Paneles de control",
     "Automatización de procesos",
     "Sistemas internos",
-    "Integraciones con APIs",
     "Soluciones personalizadas",
 ]
 
-# --- Tecnologías -----------------------------------------------------
-TECHNOLOGIES = [
-    "Python",
-    "Django",
-    "PostgreSQL",
-    "Docker",
-    "APIs",
-    "Cloud / hosting",
-    "Automatización",
-]
 
 # --- FAQ -------------------------------------------------------------
+
 FAQ_ITEMS = [
     {
-        "question": "¿Cuánto cuesta desarrollar una aplicación?",
-        "answer": "Cada aplicación es diferente. El precio depende de la complejidad, funcionalidades, integraciones e infraestructura requerida.",
+        "question": "¿Cuánto cuesta hacer un sistema?",
+        "answer": "Cada proyecto es diferente. Primero necesitamos conocer qué haces, qué necesitas y qué quieres resolver para poder darte un precio.",
+    },
+    {
+        "question": "No sé nada de tecnología, ¿pueden ayudarme?",
+        "answer": "Claro. Tú cuéntanos qué necesitas y cómo trabajas. Nosotros nos encargamos de la parte técnica y te explicamos las cosas de manera sencilla.",
+    },
+    {
+        "question": "Tengo toda mi información en Excel, ¿pueden ayudarme?",
+        "answer": "Sí. Podemos ayudarte a organizar esa información y llevarla a un sistema donde sea más fácil consultarla y administrarla.",
+    },
+    {
+        "question": "Tengo información en diferentes lugares, ¿pueden juntarla?",
+        "answer": "Sí. Podemos revisar cómo manejas actualmente tu información y buscar la mejor forma de tenerla organizada y disponible en un solo lugar.",
+    },
+    {
+        "question": "¿Pueden automatizar algunas tareas de mi negocio?",
+        "answer": "Sí. Revisamos qué tareas haces repetidamente y buscamos cuáles pueden simplificarse o hacerse automáticamente.",
     },
     {
         "question": "¿Tengo que pagar una mensualidad?",
-        "answer": "No necesariamente. El desarrollo se cotiza como proyecto. El mantenimiento mensual es un servicio adicional.",
+        "answer": "No necesariamente. El desarrollo se cotiza como proyecto. Si quieres que nos encarguemos del mantenimiento y las mejoras después de entregarlo, puedes contratar ese servicio por separado.",
     },
     {
-        "question": "¿El hosting está incluido?",
-        "answer": "Depende del proyecto. Podemos encargarnos de configurar y administrar la infraestructura necesaria.",
-    },
-    {
-        "question": "¿Pueden integrar WhatsApp?",
-        "answer": "Sí. Podemos integrar servicios de comunicación y automatización según las necesidades del proyecto.",
-    },
-    {
-        "question": "¿Pueden mantener mi aplicación después de entregarla?",
-        "answer": "Sí. Ofrecemos mantenimiento mensual.",
-    },
-    {
-        "question": "¿Puedo solicitar nuevas funcionalidades?",
-        "answer": "Sí. Las nuevas funcionalidades se analizan y cotizan de forma independiente.",
+        "question": "¿Pueden seguir ayudándome después de entregar el sistema?",
+        "answer": "Sí. Podemos encargarnos del mantenimiento, corregir problemas y agregar nuevas funciones conforme las necesites.",
     },
     {
         "question": "¿Trabajan solamente con empresas grandes?",
-        "answer": "No. Las soluciones pueden adaptarse al tamaño y presupuesto de cada negocio.",
+        "answer": "No. Trabajamos con negocios de diferentes tamaños. La solución se adapta a lo que realmente necesitas.",
     },
 ]
 
+
 # --- CTA texts -------------------------------------------------------
+
 CTA = {
-    "hero_title": "Software hecho para tu negocio.",
-    "hero_subtitle": "Desarrollamos aplicaciones web a medida para digitalizar procesos, automatizar tareas y ayudarte a administrar tu negocio de forma más eficiente.",
-    "hero_btn_primary": "Solicitar cotización",
-    "hero_btn_secondary": "Conocer nuestros servicios",
-    "final_title": "¿Tienes una idea para mejorar tu negocio?",
-    "final_subtitle": "Cuéntanos qué necesitas y encontremos una solución.",
-    "final_btn": "Solicitar cotización",
+    "hero_title": "Pon orden en tu negocio.",
+    "hero_subtitle": "Te ayudamos a organizar tu información, simplificar tus procesos y tener el control de tu negocio en un solo lugar.",
+    "hero_btn_primary": "Cuéntanos qué necesitas",
+    "hero_btn_secondary": "Conoce lo que podemos hacer",
+    "final_title": "¿Tienes un desmadre con tu información?",
+    "final_subtitle": "Cuéntanos cómo trabajas actualmente y vemos juntos cómo podemos ayudarte a poner orden.",
+    "final_btn": "Cuéntanos tu idea",
 }
 
+
 # --- Contacto --------------------------------------------------------
+
 CONTACT_INFO = {
     "whatsapp": settings.PERSONAL_NUMBER,
     "email": "jesiqueiros@hotmail.com",

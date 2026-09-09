@@ -1,133 +1,388 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="es" data-theme="corporate">
+<html lang="es" data-theme="corporate" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Jesys Solutions{% endblock %}</title>
-    <meta name="description" content="Desarrollo de software y aplicaciones web a medida para empresas y negocios.">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <meta
+        name="description"
+        content="Te ayudamos a organizar la información de tu negocio, simplificar tus procesos y tener todo bajo control."
+    >
+
+    <!-- DaisyUI -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@5"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Global styles -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
     {% block extra_css %}{% endblock %}
 </head>
+
 <body class="bg-base-100 text-base-content antialiased">
 
-    <!-- Navbar -->
-    <div class="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-300/50 px-4 lg:px-8">
-        <div class="navbar-start">
-            <a href="#inicio" class="flex items-center gap-2">
-                <img src="{% static 'img/logo_jesys.png' %}" alt="Jesys Solutions" class="h-9 w-9 sm:h-10 sm:w-10 rounded-lg object-cover">
-                <span class="hidden sm:inline text-xl font-bold tracking-tight">
-                    <span class="text-primary">Jesys</span> Solutions
-                </span>
-            </a>
-        </div>
+    <!-- ============================================================
+         NAVBAR
+    ============================================================= -->
 
-        <!-- Desktop nav -->
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal gap-1 text-sm font-medium">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
-                <li><a href="#soluciones">Soluciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
+    <header class="sticky top-0 z-50 border-b border-base-300/60 bg-base-100/85 backdrop-blur-xl">
 
-        <div class="navbar-end gap-2">
-            <a href="#contacto" class="btn btn-primary btn-sm hidden sm:inline-flex">Solicitar cotización</a>
-            <!-- Mobile menu button -->
-            <label for="mobile-nav" class="btn btn-ghost btn-circle lg:hidden" aria-label="Menú">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </label>
-        </div>
-    </div>
+        <div class="navbar mx-auto min-h-16 max-w-7xl px-4 sm:px-6 lg:px-8">
 
-    <!-- Mobile nav drawer -->
-    <input id="mobile-nav" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-side z-50 lg:hidden">
-        <label for="mobile-nav" aria-label="Cerrar menú" class="drawer-overlay"></label>
-        <div class="menu bg-base-100 min-h-full w-72 p-6 gap-1">
-            <div class="flex justify-between items-center mb-4">
-                <a href="#inicio" class="flex items-center gap-2">
-                    <img src="{% static 'img/logo_jesys.png' %}" alt="Jesys Solutions" class="h-8 w-8 rounded-lg object-cover">
-                    <span class="text-lg font-bold"><span class="text-primary">Jesys</span> Solutions</span>
+            <!-- Logo -->
+            <div class="navbar-start">
+
+                <a
+                    href="#inicio"
+                    class="group flex items-center gap-2.5"
+                    aria-label="Jesys Solutions"
+                >
+                    <img
+                        src="{% static 'img/logo_jesys.png' %}"
+                        alt="Jesys Solutions"
+                        class="h-9 w-9 rounded-xl object-cover transition-transform duration-200 group-hover:scale-105"
+                    >
+
+                    <span class="hidden text-lg font-bold tracking-tight sm:inline">
+                        <span class="text-primary">Jesys</span> Solutions
+                    </span>
                 </a>
-                <label for="mobile-nav" class="btn btn-ghost btn-circle btn-sm" aria-label="Cerrar">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </label>
-            </div>
-            <li><a href="#inicio" class="text-base">Inicio</a></li>
-            <li><a href="#servicios" class="text-base">Servicios</a></li>
-            <li><a href="#como-trabajamos" class="text-base">Cómo trabajamos</a></li>
-            <li><a href="#soluciones" class="text-base">Soluciones</a></li>
-            <li><a href="#contacto" class="text-base">Contacto</a></li>
-            <div class="mt-4">
-                <a href="#contacto" class="btn btn-primary btn-block">Solicitar cotización</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- Content -->
+            </div>
+
+
+            <!-- Desktop navigation -->
+            <nav class="navbar-center hidden lg:flex" aria-label="Navegación principal">
+
+                <ul class="menu menu-horizontal gap-1 text-sm font-medium">
+
+                    <li>
+                        <a href="#inicio" class="rounded-lg">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#soluciones" class="rounded-lg">
+                            Soluciones
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#precios" class="rounded-lg">
+                            Precios
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#como-trabajamos" class="rounded-lg">
+                            Cómo trabajamos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contacto" class="rounded-lg">
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- Right side -->
+            <div class="navbar-end gap-2">
+
+                <!-- Desktop CTA -->
+                <a
+                    href="#contacto"
+                    class="btn btn-primary btn-sm hidden sm:inline-flex"
+                >
+                    Cuéntanos qué necesitas
+                </a>
+
+
+                <!-- Mobile menu -->
+                <div class="dropdown dropdown-end lg:hidden">
+
+                    <button
+                        type="button"
+                        tabindex="0"
+                        class="btn btn-ghost btn-circle"
+                        aria-label="Abrir menú"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+                    </button>
+
+                    <ul
+                        tabindex="0"
+                        class="menu dropdown-content z-[60] mt-3 w-64 rounded-2xl border border-base-300 bg-base-100 p-3 shadow-xl"
+                    >
+
+                        <li>
+                            <a href="#inicio" class="py-3">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#soluciones" class="py-3">
+                                Soluciones
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#precios" class="py-3">
+                                Precios
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#como-trabajamos" class="py-3">
+                                Cómo trabajamos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contacto" class="py-3">
+                                Contacto
+                            </a>
+                        </li>
+
+                        <li class="mt-2 border-t border-base-300 pt-2">
+                            <a
+                                href="#contacto"
+                                class="btn btn-primary"
+                            >
+                                Cuéntanos qué necesitas
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ============================================================
+         MAIN
+    ============================================================= -->
+
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer footer-horizontal sm:footer-horizontal bg-base-200 text-base-content p-8 lg:p-12">
-        <nav>
-            <h6 class="footer-title">Jesys Solutions</h6>
-            <p class="text-sm opacity-70 max-w-xs">Desarrollo de software y aplicaciones web a medida para empresas y negocios.</p>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Navegación</h6>
-            <a href="#inicio" class="link link-hover text-sm">Inicio</a>
-            <a href="#servicios" class="link link-hover text-sm">Servicios</a>
-            <a href="#como-trabajamos" class="link link-hover text-sm">Cómo trabajamos</a>
-            <a href="#soluciones" class="link link-hover text-sm">Soluciones</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Servicios</h6>
-            <a href="#servicios" class="link link-hover text-sm">Desarrollo de software</a>
-            <a href="#servicios" class="link link-hover text-sm">Implementación</a>
-            <a href="#servicios" class="link link-hover text-sm">Automatización</a>
-            <a href="#mantenimiento" class="link link-hover text-sm">Mantenimiento</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Contacto</h6>
-            <a href="#contacto" class="link link-hover text-sm">Solicitar cotización</a>
-            {% if contact_info.whatsapp %}
-            <a href="https://wa.me/{{ contact_info.whatsapp }}" target="_blank" rel="noopener" class="link link-hover text-sm">WhatsApp</a>
-            {% endif %}
-            <a href="mailto:{{ contact_info.email }}" class="link link-hover text-sm">{{ contact_info.email }}</a>
-        </nav>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================= -->
+
+    <footer class="border-t border-base-300 bg-base-200/50">
+
+        <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+
+            <div class="grid gap-10 md:grid-cols-4">
+
+                <!-- Brand -->
+                <div class="md:col-span-2">
+
+                    <a
+                        href="#inicio"
+                        class="inline-flex items-center gap-2.5"
+                    >
+                        <img
+                            src="{% static 'img/logo_jesys.png' %}"
+                            alt="Jesys Solutions"
+                            class="h-9 w-9 rounded-xl object-cover"
+                        >
+
+                        <span class="text-lg font-bold tracking-tight">
+                            <span class="text-primary">Jesys</span> Solutions
+                        </span>
+                    </a>
+
+                    <p class="mt-4 max-w-md text-sm leading-6 text-base-content/60">
+                        Te ayudamos a organizar la información de tu negocio,
+                        simplificar tus procesos y tener todo bajo control.
+                    </p>
+
+                </div>
+
+
+                <!-- Navigation -->
+                <div>
+
+                    <h2 class="mb-4 text-sm font-semibold">
+                        Navegación
+                    </h2>
+
+                    <ul class="space-y-3 text-sm text-base-content/60">
+
+                        <li>
+                            <a
+                                href="#inicio"
+                                class="transition-colors hover:text-base-content"
+                            >
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#soluciones"
+                                class="transition-colors hover:text-base-content"
+                            >
+                                Soluciones
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#precios"
+                                class="transition-colors hover:text-base-content"
+                            >
+                                Precios
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#como-trabajamos"
+                                class="transition-colors hover:text-base-content"
+                            >
+                                Cómo trabajamos
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Contact -->
+                <div>
+
+                    <h2 class="mb-4 text-sm font-semibold">
+                        Hablemos
+                    </h2>
+
+                    <ul class="space-y-3 text-sm text-base-content/60">
+
+                        <li>
+                            <a
+                                href="#contacto"
+                                class="transition-colors hover:text-base-content"
+                            >
+                                Solicitar cotización
+                            </a>
+                        </li>
+
+                        {% if contact_info.whatsapp %}
+                            <li>
+                                <a
+                                    href="https://wa.me/{{ contact_info.whatsapp }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="transition-colors hover:text-base-content"
+                                >
+                                    WhatsApp
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if contact_info.email %}
+                            <li>
+                                <a
+                                    href="mailto:{{ contact_info.email }}"
+                                    class="break-all transition-colors hover:text-base-content"
+                                >
+                                    {{ contact_info.email }}
+                                </a>
+                            </li>
+                        {% endif %}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bottom -->
+            <div class="mt-10 flex flex-col gap-3 border-t border-base-300 pt-6 text-xs text-base-content/50 sm:flex-row sm:items-center sm:justify-between">
+
+                <p>
+                    © {{ current_year|default:"2026" }} Jesys Solutions.
+                    Todos los derechos reservados.
+                </p>
+
+                <p>
+                    Hecho para negocios que quieren trabajar mejor.
+                </p>
+
+            </div>
+
+        </div>
+
     </footer>
 
-    <footer class="footer footer-horizontal sm:footer-horizontal bg-base-200 border-t border-base-300/50 px-8 py-4">
-        <aside class="text-sm opacity-60">
-            © {{ current_year|default:"2026" }} Jesys Solutions. Todos los derechos reservados.
-        </aside>
-    </footer>
 
-    <!-- Smooth scroll -->
+    <!-- ============================================================
+         GLOBAL JS
+         Smooth scrolling
+    ============================================================= -->
+
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                var target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.getElementById('mobile-nav').checked = false;
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (event) {
+                const target = document.querySelector(this.getAttribute('href'));
+
+                if (!target) {
+                    return;
                 }
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
     </script>
 
     {% block extra_js %}{% endblock %}
+
 </body>
+
 </html>

@@ -1,394 +1,2375 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Jesys Solutions — Software hecho para tu negocio{% endblock %}
+{% block title %}
+    Jesys Solutions — Pon orden en tu negocio
+{% endblock %}
+
 
 {% block content %}
 
-<!-- ============================================================ -->
-<!-- 1. HERO                                                       -->
-<!-- ============================================================ -->
-<section id="inicio" class="hero min-h-[80vh] px-4 lg:px-8">
-    <div class="hero-content text-center max-w-4xl">
-        <div class="flex flex-col items-center gap-8">
-            <div class="badge badge-primary badge-lg gap-2 px-4 py-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                Desarrollo de software a medida
+<!-- ============================================================
+     HERO
+============================================================= -->
+
+<section id="inicio" class="relative overflow-hidden">
+
+    <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"></div>
+    </div>
+
+
+    <div class="mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24">
+
+        <div class="mx-auto max-w-4xl text-center">
+
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">
+                <span class="h-2 w-2 rounded-full bg-primary"></span>
+                Soluciones hechas para tu negocio
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+
+
+            <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
                 {{ cta.hero_title }}
             </h1>
-            <p class="text-lg sm:text-xl text-base-content/70 max-w-2xl leading-relaxed">
+
+
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-base-content/65 sm:text-lg sm:leading-8">
                 {{ cta.hero_subtitle }}
             </p>
-            <div class="flex flex-col sm:flex-row gap-3">
-                <a href="#contacto" class="btn btn-primary btn-lg">{{ cta.hero_btn_primary }}</a>
-                <a href="#servicios" class="btn btn-outline btn-lg">{{ cta.hero_btn_secondary }}</a>
+
+
+            <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+
+                <a
+                    href="#contacto"
+                    class="btn btn-primary btn-lg px-7"
+                >
+                    {{ cta.hero_btn_primary }}
+                </a>
+
+                <a
+                    href="#soluciones"
+                    class="btn btn-outline btn-lg px-7"
+                >
+                    {{ cta.hero_btn_secondary }}
+                </a>
+
             </div>
+
         </div>
-    </div>
-</section>
 
 
-<!-- ============================================================ -->
-<!-- 2. PROPUESTA DE VALOR                                         -->
-<!-- ============================================================ -->
-<section class="py-20 px-4 lg:px-8 max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold">Una solución diseñada para tu negocio</h2>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for prop in value_props %}
-        <div class="card bg-base-200/50 border border-base-300/50 hover:border-primary/30 transition-colors">
-            <div class="card-body">
-                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
-                    {% if prop.icon == "tool" %}
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    {% elif prop.icon == "bolt" %}
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                    {% elif prop.icon == "database" %}
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
-                    {% elif prop.icon == "globe" %}
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-                    {% elif prop.icon == "chart" %}
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                    {% elif prop.icon == "handshake" %}
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    {% endif %}
-                </div>
-                <h3 class="card-title text-lg">{{ prop.title }}</h3>
-                <p class="text-sm text-base-content/70 leading-relaxed">{{ prop.description }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
+        <!-- ====================================================
+             DASHBOARD DEMO
+        ===================================================== -->
+
+        <div class="relative mx-auto mt-14 max-w-6xl sm:mt-16">
+
+            <div class="pointer-events-none absolute -inset-6 rounded-[2rem] bg-primary/5 blur-3xl"></div>
 
 
-<!-- ============================================================ -->
-<!-- 3. SERVICIOS                                                  -->
-<!-- ============================================================ -->
-<section id="servicios" class="py-20 px-4 lg:px-8 bg-base-200/30">
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-bold">Servicios</h2>
-            <p class="text-base-content/60 mt-3 max-w-xl mx-auto">Todo lo que necesitas para llevar tu proyecto de software a producción.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% for service in services %}
-            <div class="card bg-base-100 border border-base-300/50 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title text-lg">{{ service.title }}</h3>
-                    <p class="text-sm text-base-content/70 leading-relaxed">{{ service.description }}</p>
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                        {% for example in service.examples %}
-                        <span class="badge badge-outline badge-sm">{{ example }}</span>
-                        {% endfor %}
+            <div class="mockup-window relative border border-base-300 bg-base-100 shadow-2xl">
+
+                <div class="grid min-h-[420px] grid-cols-1 bg-base-200/30 md:grid-cols-[180px_1fr]">
+
+
+                    <!-- Sidebar -->
+                    <aside class="hidden border-r border-base-300 bg-base-100 md:block">
+
+                        <div class="flex items-center gap-2 border-b border-base-300 px-5 py-4">
+
+                            <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-content">
+                                J
+                            </div>
+
+                            <span class="text-sm font-bold">
+                                Jesys
+                            </span>
+
+                        </div>
+
+
+                        <nav class="p-3">
+
+                            <p class="mb-2 px-3 text-[10px] font-semibold uppercase tracking-wider text-base-content/40">
+                                Menú
+                            </p>
+
+                            <div class="space-y-1 text-sm">
+
+                                <div class="rounded-lg bg-primary/10 px-3 py-2 font-medium text-primary">
+                                    Inicio
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/55">
+                                    Clientes
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/55">
+                                    Proyectos
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/55">
+                                    Cotizaciones
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/55">
+                                    Finanzas
+                                </div>
+
+                            </div>
+
+                        </nav>
+
+                    </aside>
+
+
+                    <!-- Dashboard -->
+                    <div class="min-w-0">
+
+                        <div class="flex items-center justify-between border-b border-base-300 bg-base-100 px-4 py-3 sm:px-6">
+
+                            <div>
+
+                                <p class="text-xs text-base-content/40">
+                                    Resumen
+                                </p>
+
+                                <p class="text-sm font-semibold sm:text-base">
+                                    Buenos días
+                                </p>
+
+                            </div>
+
+
+                            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-content">
+                                JS
+                            </div>
+
+                        </div>
+
+
+                        <div class="space-y-5 p-4 sm:p-6">
+
+
+                            <!-- Metrics -->
+                            <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+
+                                <div class="rounded-xl border border-base-300 bg-base-100 p-4">
+
+                                    <p class="text-xs text-base-content/40">
+                                        Clientes
+                                    </p>
+
+                                    <p class="mt-1 text-2xl font-bold">
+                                        128
+                                    </p>
+
+                                    <p class="mt-1 text-[10px] text-success">
+                                        +8 este mes
+                                    </p>
+
+                                </div>
+
+
+                                <div class="rounded-xl border border-base-300 bg-base-100 p-4">
+
+                                    <p class="text-xs text-base-content/40">
+                                        Proyectos
+                                    </p>
+
+                                    <p class="mt-1 text-2xl font-bold">
+                                        24
+                                    </p>
+
+                                    <p class="mt-1 text-[10px] text-success">
+                                        18 activos
+                                    </p>
+
+                                </div>
+
+
+                                <div class="rounded-xl border border-base-300 bg-base-100 p-4">
+
+                                    <p class="text-xs text-base-content/40">
+                                        Pendientes
+                                    </p>
+
+                                    <p class="mt-1 text-2xl font-bold">
+                                        12
+                                    </p>
+
+                                    <p class="mt-1 text-[10px] text-warning">
+                                        4 requieren atención
+                                    </p>
+
+                                </div>
+
+
+                                <div class="rounded-xl border border-base-300 bg-base-100 p-4">
+
+                                    <p class="text-xs text-base-content/40">
+                                        Ingresos
+                                    </p>
+
+                                    <p class="mt-1 text-2xl font-bold">
+                                        $84.5K
+                                    </p>
+
+                                    <p class="mt-1 text-[10px] text-success">
+                                        +12.4%
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Activity -->
+                            <div class="overflow-hidden rounded-xl border border-base-300 bg-base-100">
+
+                                <div class="border-b border-base-300 px-4 py-3 sm:px-5">
+
+                                    <p class="text-sm font-semibold">
+                                        Actividad reciente
+                                    </p>
+
+                                    <p class="text-[10px] text-base-content/40">
+                                        Últimos movimientos
+                                    </p>
+
+                                </div>
+
+
+                                <div class="overflow-x-auto">
+
+                                    <table class="table table-sm">
+
+                                        <thead>
+
+                                            <tr class="text-xs text-base-content/40">
+                                                <th>Cliente</th>
+                                                <th>Proyecto</th>
+                                                <th>Estado</th>
+                                            </tr>
+
+                                        </thead>
+
+
+                                        <tbody class="text-xs">
+
+                                            <tr>
+
+                                                <td class="font-medium">
+                                                    Empresa Norte
+                                                </td>
+
+                                                <td>
+                                                    Sistema administrativo
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge badge-success badge-xs">
+                                                        En curso
+                                                    </span>
+                                                </td>
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td class="font-medium">
+                                                    Grupo Delta
+                                                </td>
+
+                                                <td>
+                                                    Cotización
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge badge-warning badge-xs">
+                                                        Pendiente
+                                                    </span>
+                                                </td>
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td class="font-medium">
+                                                    Constructora MX
+                                                </td>
+
+                                                <td>
+                                                    Control de proyectos
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge badge-info badge-xs">
+                                                        En revisión
+                                                    </span>
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Bottom visuals -->
+                            <div class="grid gap-4 lg:grid-cols-3">
+
+                                <div class="rounded-xl border border-base-300 bg-base-100 p-4 lg:col-span-2">
+
+                                    <div class="flex items-center justify-between">
+
+                                        <div>
+
+                                            <p class="text-sm font-semibold">
+                                                Actividad del negocio
+                                            </p>
+
+                                            <p class="text-[10px] text-base-content/40">
+                                                Últimos meses
+                                            </p>
+
+                                        </div>
+
+                                        <span class="text-xs font-medium text-primary">
+                                            +18.6%
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="mt-5 flex h-24 items-end gap-2">
+
+                                        <div class="h-[35%] flex-1 rounded-t-md bg-primary/20"></div>
+                                        <div class="h-[50%] flex-1 rounded-t-md bg-primary/30"></div>
+                                        <div class="h-[42%] flex-1 rounded-t-md bg-primary/40"></div>
+                                        <div class="h-[65%] flex-1 rounded-t-md bg-primary/50"></div>
+                                        <div class="h-[72%] flex-1 rounded-t-md bg-primary/70"></div>
+                                        <div class="h-[88%] flex-1 rounded-t-md bg-primary"></div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="rounded-xl border border-base-300 bg-base-100 p-4">
+
+                                    <p class="text-xs text-base-content/40">
+                                        Próximas actividades
+                                    </p>
+
+
+                                    <div class="mt-4 space-y-3">
+
+                                        <div class="flex gap-3">
+
+                                            <div class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary"></div>
+
+                                            <div>
+
+                                                <p class="text-xs font-medium">
+                                                    Llamada con cliente
+                                                </p>
+
+                                                <p class="text-[10px] text-base-content/40">
+                                                    Hoy · 11:00 AM
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="flex gap-3">
+
+                                            <div class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-warning"></div>
+
+                                            <div>
+
+                                                <p class="text-xs font-medium">
+                                                    Revisar cotización
+                                                </p>
+
+                                                <p class="text-[10px] text-base-content/40">
+                                                    Hoy · 2:30 PM
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
-                    {% if service.note %}
-                    <div class="alert alert-warning mt-3 py-2 text-xs">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
-                        <span>{{ service.note }}</span>
-                    </div>
-                    {% endif %}
+
                 </div>
+
             </div>
-            {% endfor %}
+
+
+            <p class="mt-5 text-center text-xs text-base-content/40">
+                Un ejemplo visual de lo que podemos crear para tu negocio.
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 4. MODELO DE CONTRATACIÓN                                     -->
-<!-- ============================================================ -->
-<section class="py-20 px-4 lg:px-8 max-w-5xl mx-auto">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold">Un modelo simple y transparente</h2>
-        <p class="text-base-content/60 mt-3">El cliente paga únicamente por lo que necesita.</p>
-    </div>
-    <div class="grid sm:grid-cols-2 gap-6">
-        {% for step in hiring_model %}
-        <div class="card bg-base-200/50 border border-base-300/50">
-            <div class="card-body">
-                <div class="flex items-start gap-4">
-                    <div class="text-3xl font-bold text-primary/20 leading-none mt-1">{{ step.number }}</div>
-                    <div>
-                        <h3 class="font-bold text-lg">{{ step.title }}</h3>
-                        <p class="text-sm text-base-content/70 mt-1 leading-relaxed">{{ step.description }}</p>
-                        {% if step.price_note %}
-                        <div class="badge badge-primary/10 text-primary border-primary/20 mt-3">{{ step.price_note }}</div>
-                        {% endif %}
+
+<!-- ============================================================
+     EL PROBLEMA
+============================================================= -->
+
+<section class="border-y border-base-300/50 bg-base-200/30">
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+
+            <div>
+
+                <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                    ¿Te suena?
+                </span>
+
+
+                <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+                    ¿Tienes información por todos lados?
+                </h2>
+
+
+                <p class="mt-6 text-base leading-7 text-base-content/65 sm:text-lg">
+                    Clientes en Excel, información en WhatsApp, archivos guardados
+                    quién sabe dónde y procesos que dependen de una sola persona.
+                </p>
+
+
+                <p class="mt-4 text-base leading-7 text-base-content/65 sm:text-lg">
+                    No tiene por qué ser así.
+                </p>
+
+
+                <a
+                    href="#soluciones"
+                    class="mt-8 inline-block font-semibold text-primary transition-opacity hover:opacity-70"
+                >
+                    Podemos ayudarte a poner orden →
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-4">
+
+
+                    <div class="rounded-2xl border border-base-300 bg-base-100 p-4 shadow-sm">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-success/10 text-sm font-bold text-success">
+                                X
+                            </div>
+
+                            <div>
+
+                                <p class="text-sm font-semibold">
+                                    Excel
+                                </p>
+
+                                <p class="text-xs text-base-content/40">
+                                    Clientes.xlsx
+                                </p>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
+
+                    <div class="rounded-2xl border border-base-300 bg-base-100 p-4 shadow-sm">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-success/10 text-sm font-bold text-success">
+                                W
+                            </div>
+
+                            <div>
+
+                                <p class="text-sm font-semibold">
+                                    WhatsApp
+                                </p>
+
+                                <p class="text-xs text-base-content/40">
+                                    Conversaciones
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rounded-2xl border border-base-300 bg-base-100 p-4 shadow-sm">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-warning/10 text-sm font-bold text-warning">
+                                📁
+                            </div>
+
+                            <div>
+
+                                <p class="text-sm font-semibold">
+                                    Archivos
+                                </p>
+
+                                <p class="text-xs text-base-content/40">
+                                    PDFs y documentos
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rounded-2xl border border-base-300 bg-base-100 p-4 shadow-sm">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-error/10 text-sm font-bold text-error">
+                                !
+                            </div>
+
+                            <div>
+
+                                <p class="text-sm font-semibold">
+                                    Pendientes
+                                </p>
+
+                                <p class="text-xs text-base-content/40">
+                                    Seguimientos
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
+
+
+                <div class="my-4 flex justify-center">
+
+                    <div class="flex h-9 w-9 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-primary">
+                        ↓
+                    </div>
+
+                </div>
+
+
+                <div class="rounded-2xl border border-primary/20 bg-primary/5 p-5">
+
+                    <div class="flex items-center gap-3">
+
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary font-bold text-primary-content">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <p class="font-semibold">
+                                Todo en un solo lugar
+                            </p>
+
+                            <p class="mt-1 text-sm text-base-content/50">
+                                Información organizada y fácil de consultar.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
-        {% endfor %}
+
     </div>
-    <p class="text-center text-sm text-base-content/50 mt-8 italic">{{ maintenance_note }}</p>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 5. EJEMPLO DE PROYECTO                                        -->
-<!-- ============================================================ -->
-<section class="py-20 px-4 lg:px-8 bg-base-200/30">
-    <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">¿Qué puede incluir tu proyecto?</h2>
-        <p class="text-base-content/60 mb-10 max-w-2xl mx-auto">Cada proyecto es diferente. Podemos encargarnos únicamente del desarrollo o ayudarte también con la infraestructura necesaria para ponerlo en producción.</p>
-        <div class="flex flex-wrap justify-center gap-3">
-            {% for item in project_example %}
-            <div class="badge badge-lg bg-base-100 border-base-300 px-5 py-4 text-sm font-medium">
-                {% if not forloop.last %}
-                {{ item }}
-                <span class="text-primary font-bold ml-2">+</span>
-                {% else %}
-                {{ item }}
-                {% endif %}
-            </div>
-            {% endfor %}
+
+<!-- ============================================================
+     RESPONSIVE
+============================================================= -->
+
+<section class="overflow-hidden">
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="mx-auto max-w-3xl text-center">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                Siempre contigo
+            </span>
+
+
+            <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+                Tu negocio no se queda en la oficina.
+            </h2>
+
+
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-base-content/65 sm:text-lg">
+                Lleva tu información contigo y administra lo que necesitas
+                desde tu computadora, tablet o teléfono.
+            </p>
+
         </div>
-    </div>
-</section>
 
 
-<!-- ============================================================ -->
-<!-- 6. PROCESO DE TRABAJO                                         -->
-<!-- ============================================================ -->
-<section id="como-trabajamos" class="py-20 px-4 lg:px-8 max-w-4xl mx-auto">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold">De una idea a una solución funcionando</h2>
-    </div>
-    <ul class="steps steps-vertical lg:steps-horizontal w-full">
-        {% for step in process_steps %}
-        <li class="step step-primary" data-content="{{ step.number }}">
-            <div class="text-left lg:text-center">
-                <div class="font-bold text-sm mt-2">{{ step.title }}</div>
-                <div class="text-xs text-base-content/60 max-w-[140px] lg:max-w-[160px]">{{ step.description }}</div>
+        <div class="relative mx-auto mt-14 max-w-6xl sm:mt-20">
+
+
+            <!-- Desktop -->
+            <div class="mockup-window border border-base-300 bg-base-100 shadow-2xl">
+
+                <div class="bg-base-200/30 p-3 sm:p-5">
+
+                    <div class="grid min-h-[390px] overflow-hidden rounded-xl border border-base-300 bg-base-100 md:grid-cols-[160px_1fr]">
+
+                        <aside class="hidden border-r border-base-300 md:block">
+
+                            <div class="border-b border-base-300 px-4 py-4">
+
+                                <div class="flex items-center gap-2">
+
+                                    <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-content">
+                                        J
+                                    </div>
+
+                                    <span class="text-sm font-bold">
+                                        Jesys
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <nav class="space-y-1 p-3 text-xs">
+
+                                <div class="rounded-lg bg-primary/10 px-3 py-2 font-medium text-primary">
+                                    Resumen
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/50">
+                                    Clientes
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/50">
+                                    Proyectos
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/50">
+                                    Cotizaciones
+                                </div>
+
+                                <div class="rounded-lg px-3 py-2 text-base-content/50">
+                                    Finanzas
+                                </div>
+
+                            </nav>
+
+                        </aside>
+
+
+                        <div class="min-w-0">
+
+                            <div class="flex items-center justify-between border-b border-base-300 px-4 py-3">
+
+                                <div>
+
+                                    <p class="text-[10px] text-base-content/40">
+                                        Resumen
+                                    </p>
+
+                                    <p class="text-sm font-semibold">
+                                        Mi negocio
+                                    </p>
+
+                                </div>
+
+
+                                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-content">
+                                    JS
+                                </div>
+
+                            </div>
+
+
+                            <div class="space-y-4 p-4">
+
+                                <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+
+                                    <div class="rounded-xl border border-base-300 p-3">
+
+                                        <p class="text-[10px] text-base-content/40">
+                                            Clientes
+                                        </p>
+
+                                        <p class="mt-1 text-xl font-bold">
+                                            128
+                                        </p>
+
+                                    </div>
+
+
+                                    <div class="rounded-xl border border-base-300 p-3">
+
+                                        <p class="text-[10px] text-base-content/40">
+                                            Proyectos
+                                        </p>
+
+                                        <p class="mt-1 text-xl font-bold">
+                                            24
+                                        </p>
+
+                                    </div>
+
+
+                                    <div class="rounded-xl border border-base-300 p-3">
+
+                                        <p class="text-[10px] text-base-content/40">
+                                            Pendientes
+                                        </p>
+
+                                        <p class="mt-1 text-xl font-bold">
+                                            12
+                                        </p>
+
+                                    </div>
+
+
+                                    <div class="rounded-xl border border-base-300 p-3">
+
+                                        <p class="text-[10px] text-base-content/40">
+                                            Ingresos
+                                        </p>
+
+                                        <p class="mt-1 text-xl font-bold">
+                                            $84.5K
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="overflow-hidden rounded-xl border border-base-300">
+
+                                    <div class="border-b border-base-300 px-4 py-3">
+
+                                        <p class="text-xs font-semibold">
+                                            Actividad reciente
+                                        </p>
+
+                                    </div>
+
+
+                                    <div class="overflow-x-auto">
+
+                                        <table class="table table-sm">
+
+                                            <thead>
+
+                                                <tr class="text-[10px] text-base-content/40">
+                                                    <th>Cliente</th>
+                                                    <th>Proyecto</th>
+                                                    <th>Estado</th>
+                                                </tr>
+
+                                            </thead>
+
+
+                                            <tbody class="text-xs">
+
+                                                <tr>
+
+                                                    <td>
+                                                        Empresa Norte
+                                                    </td>
+
+                                                    <td>
+                                                        Sistema administrativo
+                                                    </td>
+
+                                                    <td>
+                                                        <span class="badge badge-success badge-xs">
+                                                            En curso
+                                                        </span>
+                                                    </td>
+
+                                                </tr>
+
+
+                                                <tr>
+
+                                                    <td>
+                                                        Grupo Delta
+                                                    </td>
+
+                                                    <td>
+                                                        Cotización
+                                                    </td>
+
+                                                    <td>
+                                                        <span class="badge badge-warning badge-xs">
+                                                            Pendiente
+                                                        </span>
+                                                    </td>
+
+                                                </tr>
+
+
+                                                <tr>
+
+                                                    <td>
+                                                        Constructora MX
+                                                    </td>
+
+                                                    <td>
+                                                        Control de proyectos
+                                                    </td>
+
+                                                    <td>
+                                                        <span class="badge badge-info badge-xs">
+                                                            En revisión
+                                                        </span>
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-        </li>
-        {% endfor %}
-    </ul>
+
+
+                    <!-- Phone -->
+            <div class="absolute -bottom-10 right-2 hidden sm:block md:right-8 lg:right-14">
+
+                <div class="mockup-phone">
+
+                    <div class="mockup-phone-camera"></div>
+
+                    <div class="mockup-phone-display bg-neutral-900">
+
+                        <!-- Mobile app -->
+                        <div class="flex h-full flex-col bg-base-100 text-base-content">
+
+                            <!-- App header -->
+                            <div class="flex items-center justify-between border-b border-base-300 px-4 py-3">
+
+                                <div>
+                                    <p class="text-[8px] text-base-content/40">
+                                        Resumen
+                                    </p>
+
+                                    <p class="text-[12px] font-semibold">
+                                        Mi negocio
+                                    </p>
+                                </div>
+
+                                <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-content">
+                                    JS
+                                </div>
+
+                            </div>
+
+
+                            <!-- Content -->
+                            <div class="flex-1 overflow-hidden bg-base-200/40 px-3 py-3">
+
+                                <div class="space-y-3">
+
+                                    <!-- Main metric -->
+                                    <div class="rounded-2xl border border-base-300 bg-base-100 p-3 shadow-sm">
+
+                                        <div class="flex items-start justify-between">
+
+                                            <div>
+                                                <p class="text-[8px] text-base-content/45">
+                                                    Clientes
+                                                </p>
+
+                                                <p class="mt-1 text-2xl font-bold">
+                                                    128
+                                                </p>
+                                            </div>
+
+                                            <div class="rounded-lg bg-success/10 px-2 py-1 text-[8px] font-medium text-success">
+                                                +8
+                                            </div>
+
+                                        </div>
+
+                                        <p class="mt-2 text-[8px] text-base-content/40">
+                                            Este mes
+                                        </p>
+
+                                    </div>
+
+
+                                    <!-- Two metrics -->
+                                    <div class="grid grid-cols-2 gap-3">
+
+                                        <div class="rounded-2xl border border-base-300 bg-base-100 p-3 shadow-sm">
+
+                                            <div class="mb-2 flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-3.5 w-3.5"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M9 17v-2m3 2v-4m3 4v-6m2 9H7a2 2 0 01-2-2V6a2 2 0 012-2h8l4 4v11a2 2 0 01-2 2z"
+                                                    />
+                                                </svg>
+                                            </div>
+
+                                            <p class="text-[8px] text-base-content/45">
+                                                Proyectos
+                                            </p>
+
+                                            <p class="mt-1 text-lg font-bold">
+                                                24
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="rounded-2xl border border-base-300 bg-base-100 p-3 shadow-sm">
+
+                                            <div class="mb-2 flex h-7 w-7 items-center justify-center rounded-lg bg-warning/10 text-warning">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-3.5 w-3.5"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4l2.5 2.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                    />
+                                                </svg>
+                                            </div>
+
+                                            <p class="text-[8px] text-base-content/45">
+                                                Pendientes
+                                            </p>
+
+                                            <p class="mt-1 text-lg font-bold">
+                                                12
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Activity -->
+                                    <div class="rounded-2xl border border-base-300 bg-base-100 shadow-sm">
+
+                                        <div class="border-b border-base-300 px-3 py-3">
+
+                                            <div class="flex items-center justify-between">
+
+                                                <p class="text-[9px] font-semibold">
+                                                    Actividad reciente
+                                                </p>
+
+                                                <span class="text-[8px] text-primary">
+                                                    Ver todo
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="space-y-3 p-3">
+
+                                            <div class="flex items-center gap-2.5">
+
+                                                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-success/10 text-success">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="h-3.5 w-3.5"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M5 13l4 4L19 7"
+                                                        />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="min-w-0 flex-1">
+
+                                                    <p class="truncate text-[9px] font-medium">
+                                                        Nueva cotización
+                                                    </p>
+
+                                                    <p class="text-[7px] text-base-content/40">
+                                                        Hace 10 minutos
+                                                    </p>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="flex items-center gap-2.5">
+
+                                                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="h-3.5 w-3.5"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M18 9a6 6 0 10-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                                                        />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="min-w-0 flex-1">
+
+                                                    <p class="truncate text-[9px] font-medium">
+                                                        Recordatorio
+                                                    </p>
+
+                                                    <p class="text-[7px] text-base-content/40">
+                                                        Hace 35 minutos
+                                                    </p>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="flex items-center gap-2.5">
+
+                                                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-info/10 text-info">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="h-3.5 w-3.5"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M16 11V7a4 4 0 00-8 0v4M5 11h14l1 9H4l1-9z"
+                                                        />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="min-w-0 flex-1">
+
+                                                    <p class="truncate text-[9px] font-medium">
+                                                        Nuevo proyecto
+                                                    </p>
+
+                                                    <p class="text-[7px] text-base-content/40">
+                                                        Hace 1 hora
+                                                    </p>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Mobile navigation -->
+                            <div class="border-t border-base-300 bg-base-100 px-2 py-2">
+
+                                <div class="grid grid-cols-4 text-center">
+
+                                    <div class="flex flex-col items-center gap-1 text-primary">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-3.5 w-3.5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M3 12l9-8 9 8M5 10v10h14V10"
+                                            />
+                                        </svg>
+
+                                        <span class="text-[7px] font-medium">
+                                            Inicio
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="flex flex-col items-center gap-1 text-base-content/40">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-3.5 w-3.5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2m9-10a4 4 0 100-8 4 4 0 000 8zm5 1a4 4 0 110-8"
+                                            />
+                                        </svg>
+
+                                        <span class="text-[7px]">
+                                            Clientes
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="flex flex-col items-center gap-1 text-base-content/40">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-3.5 w-3.5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h8l4 4v12a2 2 0 01-2 2z"
+                                            />
+                                        </svg>
+
+                                        <span class="text-[7px]">
+                                            Proyectos
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="flex flex-col items-center gap-1 text-base-content/40">
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-3.5 w-3.5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4 6h16M4 12h16M4 18h16"
+                                            />
+                                        </svg>
+
+                                        <span class="text-[7px]">
+                                            Más
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p class="mt-14 text-center text-xs text-base-content/40">
+            El mismo sistema, adaptado a la forma en que trabajas.
+        </p>
+
+    </div>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 7. TIPOS DE SOLUCIONES                                        -->
-<!-- ============================================================ -->
-<section id="soluciones" class="py-20 px-4 lg:px-8 bg-base-200/30">
-    <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">¿Qué podemos desarrollar?</h2>
-        <p class="text-base-content/60 mb-10">Estas son algunas de las soluciones que podemos construir. No nos limitamos a esta lista.</p>
-        <div class="flex flex-wrap justify-center gap-2.5">
+
+<!-- ============================================================
+     SOLUCIONES
+============================================================= -->
+
+<section id="soluciones" class="bg-base-200/30">
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="max-w-2xl">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                Soluciones
+            </span>
+
+
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                ¿Qué podemos ayudarte a resolver?
+            </h2>
+
+
+            <p class="mt-5 text-base leading-7 text-base-content/65 sm:text-lg">
+                No importa cómo lo haces actualmente. Primero entendemos cómo
+                trabajas y después buscamos una mejor forma de hacerlo.
+            </p>
+
+        </div>
+
+
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+
             {% for solution in solution_types %}
-            <span class="badge badge-outline badge-lg px-5 py-3">{{ solution }}</span>
+
+            <div class="group rounded-2xl border border-base-300 bg-base-100 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+
+                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+
+                    {% if solution == "Gestión de clientes" %}
+                        👥
+                    {% elif solution == "Control de proyectos" %}
+                        📋
+                    {% elif solution == "Cotizaciones" %}
+                        🧾
+                    {% elif solution == "Sistemas de citas" %}
+                        📅
+                    {% elif solution == "Inventarios" %}
+                        📦
+                    {% elif solution == "Control de pagos" %}
+                        💳
+                    {% elif solution == "Control de gastos" %}
+                        💰
+                    {% elif solution == "Reportes" %}
+                        📊
+                    {% elif solution == "Paneles de control" %}
+                        📈
+                    {% elif solution == "Automatización de procesos" %}
+                        ⚡
+                    {% else %}
+                        ✓
+                    {% endif %}
+
+                </div>
+
+
+                <h3 class="mt-5 font-semibold">
+                    {{ solution }}
+                </h3>
+
+            </div>
+
             {% endfor %}
+
         </div>
+
     </div>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 8. TECNOLOGÍA                                                 -->
-<!-- ============================================================ -->
-<section class="py-20 px-4 lg:px-8 max-w-4xl mx-auto">
-    <div class="text-center mb-10">
-        <h2 class="text-3xl sm:text-4xl font-bold">Tecnología que se adapta a tu proyecto</h2>
-        <p class="text-base-content/60 mt-3">Elegimos las herramientas adecuadas para cada caso.</p>
-    </div>
-    <div class="flex flex-wrap justify-center gap-3">
-        {% for tech in technologies %}
-        <div class="kbd kbd-lg">{{ tech }}</div>
-        {% endfor %}
-    </div>
-</section>
+
+<!-- ============================================================
+     EJEMPLOS
+============================================================= -->
+
+<section>
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="mx-auto max-w-3xl text-center">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                Algunos ejemplos
+            </span>
 
 
-<!-- ============================================================ -->
-<!-- 9. MANTENIMIENTO MENSUAL                                      -->
-<!-- ============================================================ -->
-<section id="mantenimiento" class="py-20 px-4 lg:px-8 bg-base-200/30">
-    <div class="max-w-3xl mx-auto">
-        <div class="card bg-base-100 border border-base-300/50 shadow-sm overflow-hidden">
-            <div class="card-body p-8 lg:p-12">
-                <div class="flex flex-col lg:flex-row gap-8 items-center">
-                    <div class="flex-1 text-center lg:text-left">
-                        <h2 class="text-2xl sm:text-3xl font-bold mb-3">Tu aplicación no termina cuando la ponemos en producción.</h2>
-                        <p class="text-base-content/70 leading-relaxed">Podemos encargarnos del mantenimiento técnico de tu aplicación para que puedas concentrarte en tu negocio.</p>
-                    </div>
-                    <div class="flex-shrink-0 text-center bg-primary/5 rounded-2xl p-6 border border-primary/10">
-                        <div class="text-sm text-base-content/50 mb-1">Desde</div>
-                        <div class="text-4xl font-bold text-primary">{{ maintenance_price }}</div>
-                        <div class="text-sm text-base-content/50">{{ maintenance_currency }} / mes</div>
-                    </div>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                Una solución puede verse así.
+            </h2>
+
+
+            <p class="mt-5 text-base leading-7 text-base-content/65 sm:text-lg">
+                Estos son solo ejemplos. Cada sistema se construye alrededor
+                de lo que realmente necesita tu negocio.
+            </p>
+
+        </div>
+
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-2">
+
+
+            <!-- Cotización -->
+            <div class="rounded-3xl border border-base-300 bg-base-200/30 p-4 sm:p-6">
+
+                <div class="mb-5 px-2">
+
+                    <p class="text-sm font-semibold">
+                        Cotizaciones
+                    </p>
+
+                    <p class="mt-1 text-xs text-base-content/45">
+                        Crea y consulta cotizaciones desde un mismo lugar.
+                    </p>
+
                 </div>
-                <div class="divider"></div>
-                <div class="grid sm:grid-cols-2 gap-2">
-                    <div class="flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        Corrección de errores
+
+
+                <div class="rounded-2xl border border-base-300 bg-base-100 p-5 shadow-sm">
+
+                    <div class="flex items-center justify-between border-b border-base-300 pb-4">
+
+                        <div>
+
+                            <p class="text-[10px] text-base-content/40">
+                                COTIZACIÓN
+                            </p>
+
+                            <p class="font-bold">
+                                #2026-018
+                            </p>
+
+                        </div>
+
+                        <span class="badge badge-warning">
+                            En revisión
+                        </span>
+
                     </div>
-                    <div class="flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        Mantenimiento técnico
+
+
+                    <div class="mt-5 space-y-3 text-sm">
+
+                        <div class="flex justify-between">
+                            <span>
+                                Sistema administrativo
+                            </span>
+
+                            <span>
+                                $12,000
+                            </span>
+                        </div>
+
+
+                        <div class="flex justify-between">
+                            <span>
+                                Dashboard
+                            </span>
+
+                            <span>
+                                $3,000
+                            </span>
+                        </div>
+
+
+                        <div class="flex justify-between">
+                            <span>
+                                Automatización
+                            </span>
+
+                            <span>
+                                $2,500
+                            </span>
+                        </div>
+
                     </div>
-                    <div class="flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        Actualizaciones
+
+
+                    <div class="mt-5 border-t border-base-300 pt-4">
+
+                        <div class="flex justify-between">
+
+                            <span class="font-medium">
+                                Total
+                            </span>
+
+                            <span class="text-lg font-bold">
+                                $17,500 MXN
+                            </span>
+
+                        </div>
+
                     </div>
-                    <div class="flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        Revisiones
-                    </div>
-                    <div class="flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        Soporte básico
-                    </div>
-                    <div class="flex items-center gap-2 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        Actualizaciones de seguridad
-                    </div>
+
                 </div>
-                <div class="alert alert-warning mt-4 py-2 text-xs">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
-                    <span>Nuevas funcionalidades, módulos y cambios importantes se cotizan por separado.</span>
+
+            </div>
+
+
+            <!-- Clientes -->
+            <div class="rounded-3xl border border-base-300 bg-base-200/30 p-4 sm:p-6">
+
+                <div class="mb-5 px-2">
+
+                    <p class="text-sm font-semibold">
+                        Clientes
+                    </p>
+
+                    <p class="mt-1 text-xs text-base-content/45">
+                        Toda tu información organizada y fácil de consultar.
+                    </p>
+
                 </div>
+
+
+                <div class="overflow-hidden rounded-2xl border border-base-300 bg-base-100 shadow-sm">
+
+                    <div class="flex items-center justify-between border-b border-base-300 p-4">
+
+                        <div>
+
+                            <p class="font-semibold">
+                                Clientes
+                            </p>
+
+                            <p class="text-xs text-base-content/45">
+                                128 registrados
+                            </p>
+
+                        </div>
+
+
+                        <span class="btn btn-primary btn-xs">
+                            Nuevo
+                        </span>
+
+                    </div>
+
+
+                    <div class="overflow-x-auto">
+
+                        <table class="table table-sm">
+
+                            <thead>
+
+                                <tr class="text-xs text-base-content/40">
+                                    <th>Cliente</th>
+                                    <th>Empresa</th>
+                                    <th>Estado</th>
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody class="text-xs">
+
+                                <tr>
+                                    <td class="font-medium">Juan López</td>
+                                    <td>Empresa Norte</td>
+                                    <td>
+                                        <span class="badge badge-success badge-xs">
+                                            Activo
+                                        </span>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="font-medium">María Torres</td>
+                                    <td>Grupo Delta</td>
+                                    <td>
+                                        <span class="badge badge-success badge-xs">
+                                            Activo
+                                        </span>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="font-medium">Carlos Pérez</td>
+                                    <td>Constructora MX</td>
+                                    <td>
+                                        <span class="badge badge-ghost badge-xs">
+                                            Inactivo
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 10. FAQ                                                       -->
-<!-- ============================================================ -->
-<section class="py-20 px-4 lg:px-8 max-w-3xl mx-auto">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold">Preguntas frecuentes</h2>
-    </div>
-    <div class="space-y-2">
-        {% for faq in faq_items %}
-        <div class="collapse collapse-arrow bg-base-200/50 border border-base-300/50">
-            <input type="radio" name="faq" {% if forloop.first %}checked{% endif %} />
-            <div class="collapse-title font-medium">{{ faq.question }}</div>
-            <div class="collapse-content">
-                <p class="text-sm text-base-content/70 leading-relaxed">{{ faq.answer }}</p>
-            </div>
+
+<!-- ============================================================
+     PROPUESTA DE VALOR
+============================================================= -->
+
+<section class="bg-base-200/30">
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="mx-auto max-w-2xl text-center">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                ¿Por qué hacerlo así?
+            </span>
+
+
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                Una solución que se adapta a ti.
+            </h2>
+
         </div>
-        {% endfor %}
+
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+            {% for prop in value_props %}
+
+            <div class="rounded-2xl border border-base-300 bg-base-100 p-6">
+
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+
+                    {% if prop.icon == "tool" %}
+                        ✓
+                    {% elif prop.icon == "database" %}
+                        ◉
+                    {% elif prop.icon == "bolt" %}
+                        ⚡
+                    {% elif prop.icon == "globe" %}
+                        ◎
+                    {% elif prop.icon == "chart" %}
+                        ↗
+                    {% elif prop.icon == "handshake" %}
+                        ♡
+                    {% else %}
+                        ✓
+                    {% endif %}
+
+                </div>
+
+
+                <h3 class="mt-5 text-lg font-semibold">
+                    {{ prop.title }}
+                </h3>
+
+
+                <p class="mt-2 text-sm leading-6 text-base-content/55">
+                    {{ prop.description }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
     </div>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 11. CTA FINAL                                                 -->
-<!-- ============================================================ -->
-<section class="py-20 px-4 lg:px-8 bg-primary/5">
-    <div class="hero">
-        <div class="hero-content text-center max-w-2xl">
-            <div class="flex flex-col items-center gap-6">
-                <h2 class="text-3xl sm:text-4xl font-bold">{{ cta.final_title }}</h2>
-                <p class="text-lg text-base-content/70">{{ cta.final_subtitle }}</p>
-                <a href="#contacto" class="btn btn-primary btn-lg">{{ cta.final_btn }}</a>
-            </div>
+
+<!-- ============================================================
+     PRECIOS
+============================================================= -->
+
+<section id="precios">
+
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="mx-auto max-w-2xl text-center">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                Desarrollo
+            </span>
+
+
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                Empieza con lo que necesitas.
+            </h2>
+
+
+            <p class="mt-5 text-base leading-7 text-base-content/65 sm:text-lg">
+                Estos niveles sirven como referencia. El precio final depende
+                de lo que necesite tu negocio.
+            </p>
+
         </div>
+
+
+        <div class="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-3">
+
+            {% for plan in development_plans %}
+
+            <div class="
+                card
+                relative
+                border
+                {% if plan.featured %}
+                    border-2 border-primary shadow-xl
+                {% else %}
+                    border-base-300 shadow-sm
+                {% endif %}
+                bg-base-100
+            ">
+
+
+                {% if plan.featured %}
+
+                <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+
+                    <span class="badge badge-primary px-4 py-3">
+                        Más elegido
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                <div class="card-body">
+
+
+                    <p class="text-sm font-semibold text-primary">
+                        Desarrollo {{ plan.name }}
+                    </p>
+
+
+                    <h3 class="mt-2 text-2xl font-bold">
+                        {{ plan.subtitle }}
+                    </h3>
+
+
+                    <p class="mt-2 text-sm leading-6 text-base-content/55">
+                        {{ plan.description }}
+                    </p>
+
+
+                    <div class="mt-6">
+
+                        <span class="text-4xl font-bold">
+                            {{ plan.price }}
+                        </span>
+
+                        <span class="text-sm text-base-content/45">
+                            MXN
+                        </span>
+
+                    </div>
+
+
+                    <div class="divider"></div>
+
+
+                    <ul class="space-y-3 text-sm">
+
+                        {% for feature in plan.features %}
+
+                        <li class="flex items-start gap-2">
+
+                            <span class="text-success">
+                                ✓
+                            </span>
+
+                            <span>
+                                {{ feature }}
+                            </span>
+
+                        </li>
+
+                        {% endfor %}
+
+                    </ul>
+
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#contacto"
+                            class="
+                                btn
+                                btn-block
+                                {% if plan.featured %}
+                                    btn-primary
+                                {% else %}
+                                    btn-outline
+                                {% endif %}
+                            "
+                        >
+                            Cuéntanos qué necesitas
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <p class="mx-auto mt-8 max-w-2xl text-center text-xs leading-5 text-base-content/45">
+            Los precios son una referencia inicial. Podemos agregar funciones,
+            adaptar la solución y cotizar necesidades específicas por separado.
+        </p>
+
     </div>
+
 </section>
 
 
-<!-- ============================================================ -->
-<!-- 12. CONTACTO                                                  -->
-<!-- ============================================================ -->
-<section id="contacto" class="py-20 px-4 lg:px-8 bg-base-200/30">
-    <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl sm:text-4xl font-bold">Cuéntanos sobre tu proyecto</h2>
-            <p class="text-base-content/60 mt-3">Completa el formulario y te contactaremos para conocerte mejor.</p>
+
+<!-- ============================================================
+     PROCESO
+============================================================= -->
+
+<section id="como-trabajamos" class="bg-base-200/30">
+
+    <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="mx-auto max-w-2xl text-center">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                Así trabajamos
+            </span>
+
+
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                Tú conoces tu negocio. Nosotros te ayudamos a mejorarlo.
+            </h2>
+
         </div>
-        <div class="card bg-base-100 border border-base-300/50 shadow-sm">
-            <div class="card-body p-6 lg:p-8">
-                <form method="post" action="#contacto" class="flex flex-col gap-4">
-                    {% csrf_token %}
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="label text-sm font-medium" for="{{ form.nombre.id_for_label }}">Nombre *</label>
-                            {{ form.nombre }}
-                            {% if form.nombre.errors %}
-                            <span class="text-error text-xs mt-1">{{ form.nombre.errors.0 }}</span>
-                            {% endif %}
-                        </div>
-                        <div>
-                            <label class="label text-sm font-medium" for="{{ form.empresa.id_for_label }}">Empresa</label>
-                            {{ form.empresa }}
-                        </div>
+
+
+        <div class="mt-14 space-y-2">
+
+            {% for step in process_steps %}
+
+            <div class="flex gap-5 sm:gap-8">
+
+                <div class="flex shrink-0 flex-col items-center">
+
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-content">
+                        {{ step.number }}
                     </div>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="label text-sm font-medium" for="{{ form.email.id_for_label }}">Correo electrónico *</label>
-                            {{ form.email }}
-                            {% if form.email.errors %}
-                            <span class="text-error text-xs mt-1">{{ form.email.errors.0 }}</span>
-                            {% endif %}
+
+                    {% if not forloop.last %}
+                        <div class="mt-2 h-full w-px bg-base-300"></div>
+                    {% endif %}
+
+                </div>
+
+
+                <div class="pb-8">
+
+                    <h3 class="text-lg font-bold">
+                        {{ step.title }}
+                    </h3>
+
+
+                    <p class="mt-2 max-w-xl text-sm leading-6 text-base-content/60">
+                        {{ step.description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     MANTENIMIENTO
+============================================================= -->
+
+<section id="mantenimiento">
+
+    <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+
+        <div class="rounded-3xl border border-base-300 bg-base-100 p-8 shadow-sm sm:p-10 lg:p-12">
+
+            <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+
+
+                <div>
+
+                    <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                        Seguimos contigo
+                    </span>
+
+
+                    <h2 class="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+                        Tu sistema puede seguir creciendo contigo.
+                    </h2>
+
+
+                    <p class="mt-4 max-w-xl text-sm leading-6 text-base-content/60 sm:text-base">
+                        Después de ponerlo en marcha, podemos seguir ayudándote
+                        con mantenimiento, correcciones y mejoras para que siga
+                        funcionando conforme tu negocio cambia.
+                    </p>
+
+
+                    <div class="mt-6 grid gap-3 sm:grid-cols-2">
+
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-success">✓</span>
+                            Corrección de errores
                         </div>
-                        <div>
-                            <label class="label text-sm font-medium" for="{{ form.telefono.id_for_label }}">Teléfono</label>
-                            {{ form.telefono }}
+
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-success">✓</span>
+                            Revisiones
                         </div>
+
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-success">✓</span>
+                            Actualizaciones
+                        </div>
+
+                        <div class="flex items-center gap-2 text-sm">
+                            <span class="text-success">✓</span>
+                            Soporte
+                        </div>
+
                     </div>
-                    <div>
-                        <label class="label text-sm font-medium" for="{{ form.necesidad.id_for_label }}">¿Qué necesitas? *</label>
-                        {{ form.necesidad }}
-                    </div>
-                    <div>
-                        <label class="label text-sm font-medium" for="{{ form.mensaje.id_for_label }}">Cuéntanos más *</label>
-                        {{ form.mensaje }}
-                        {% if form.mensaje.errors %}
-                        <span class="text-error text-xs mt-1">{{ form.mensaje.errors.0 }}</span>
+
+                </div>
+
+
+                <div class="rounded-2xl border border-primary/15 bg-primary/5 p-7 text-center">
+
+                    <p class="text-sm text-base-content/45">
+                        Desde
+                    </p>
+
+
+                    <p class="mt-1 text-4xl font-bold text-primary">
+                        {{ maintenance_price }}
+                    </p>
+
+
+                    <p class="mt-1 text-sm text-base-content/45">
+                        {{ maintenance_currency }} / mes
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="mt-8 border-t border-base-300 pt-5">
+
+                <p class="text-xs leading-5 text-base-content/45">
+                    Nuevas funcionalidades, módulos y cambios importantes
+                    se cotizan por separado.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     FAQ
+============================================================= -->
+
+<section>
+
+    <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="text-center">
+
+            <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                Preguntas frecuentes
+            </span>
+
+
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                Antes de empezar
+            </h2>
+
+        </div>
+
+
+        <div class="mt-10 space-y-2">
+
+            {% for faq in faq_items %}
+
+            <div class="collapse collapse-plus rounded-xl border border-base-300 bg-base-100">
+
+                <input
+                    type="radio"
+                    name="faq"
+                    {% if forloop.first %}checked{% endif %}
+                >
+
+
+                <div class="collapse-title font-medium">
+                    {{ faq.question }}
+                </div>
+
+
+                <div class="collapse-content">
+
+                    <p class="text-sm leading-6 text-base-content/60">
+                        {{ faq.answer }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     CTA FINAL
+============================================================= -->
+
+<section class="overflow-hidden bg-primary">
+
+    <div class="mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
+
+        <h2 class="text-3xl font-bold tracking-tight text-primary-content sm:text-4xl lg:text-5xl">
+            {{ cta.final_title }}
+        </h2>
+
+
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-primary-content/75 sm:text-lg">
+            {{ cta.final_subtitle }}
+        </p>
+
+
+        <div class="mt-8">
+
+            <a
+                href="#contacto"
+                class="btn btn-neutral btn-lg px-8"
+            >
+                {{ cta.final_btn }}
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     CONTACTO
+============================================================= -->
+
+<section id="contacto">
+
+    <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+
+        <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+
+
+            <!-- Copy -->
+            <div>
+
+                <span class="text-sm font-semibold uppercase tracking-wider text-primary">
+                    Hablemos
+                </span>
+
+
+                <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                    Cuéntanos qué necesitas.
+                </h2>
+
+
+                <p class="mt-5 text-base leading-7 text-base-content/60">
+                    No necesitas saber de tecnología. Cuéntanos cómo trabajas,
+                    qué tienes actualmente y qué te gustaría mejorar.
+                </p>
+
+
+                <p class="mt-4 text-base leading-7 text-base-content/60">
+                    Nosotros nos encargamos de encontrar una forma de resolverlo.
+                </p>
+
+
+                <div class="mt-8">
+
+                    <p class="text-sm font-medium">
+                        También puedes escribirnos directamente.
+                    </p>
+
+
+                    <div class="mt-3 space-y-2 text-sm text-base-content/60">
+
+                        {% if contact_info.whatsapp %}
+
+                        <a
+                            href="https://wa.me/{{ contact_info.whatsapp }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block transition-colors hover:text-base-content"
+                        >
+                            WhatsApp
+                        </a>
+
                         {% endif %}
+
+
+                        <a
+                            href="mailto:{{ contact_info.email }}"
+                            class="block transition-colors hover:text-base-content"
+                        >
+                            {{ contact_info.email }}
+                        </a>
+
                     </div>
-                    <button type="button" onclick="enviarWhatsApp()" class="btn btn-primary btn-block mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Enviar solicitud
-                    </button>
-                </form>
+
+                </div>
+
             </div>
+
+
+            <!-- Form -->
+            <div class="card border border-base-300 bg-base-100 shadow-sm">
+
+                <div class="card-body p-6 sm:p-8">
+
+                    <form
+                        method="post"
+                        action="#contacto"
+                        class="space-y-5"
+                    >
+
+                        {% csrf_token %}
+
+
+                        <div class="grid gap-5 sm:grid-cols-2">
+
+                            <div>
+
+                                <label
+                                    class="label text-sm font-medium"
+                                    for="{{ form.nombre.id_for_label }}"
+                                >
+                                    Nombre *
+                                </label>
+
+                                {{ form.nombre }}
+
+                                {% if form.nombre.errors %}
+
+                                <span class="mt-1 text-xs text-error">
+                                    {{ form.nombre.errors.0 }}
+                                </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <div>
+
+                                <label
+                                    class="label text-sm font-medium"
+                                    for="{{ form.empresa.id_for_label }}"
+                                >
+                                    Empresa
+                                </label>
+
+                                {{ form.empresa }}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="grid gap-5 sm:grid-cols-2">
+
+                            <div>
+
+                                <label
+                                    class="label text-sm font-medium"
+                                    for="{{ form.email.id_for_label }}"
+                                >
+                                    Correo electrónico *
+                                </label>
+
+                                {{ form.email }}
+
+                                {% if form.email.errors %}
+
+                                <span class="mt-1 text-xs text-error">
+                                    {{ form.email.errors.0 }}
+                                </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <div>
+
+                                <label
+                                    class="label text-sm font-medium"
+                                    for="{{ form.telefono.id_for_label }}"
+                                >
+                                    Teléfono
+                                </label>
+
+                                {{ form.telefono }}
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <label
+                                class="label text-sm font-medium"
+                                for="{{ form.necesidad.id_for_label }}"
+                            >
+                                ¿Qué necesitas? *
+                            </label>
+
+                            {{ form.necesidad }}
+
+                        </div>
+
+
+                        <div>
+
+                            <label
+                                class="label text-sm font-medium"
+                                for="{{ form.mensaje.id_for_label }}"
+                            >
+                                Cuéntanos qué pasa *
+                            </label>
+
+                            {{ form.mensaje }}
+
+                            {% if form.mensaje.errors %}
+
+                            <span class="mt-1 text-xs text-error">
+                                {{ form.mensaje.errors.0 }}
+                            </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="enviarWhatsApp()"
+                            class="btn btn-primary btn-block"
+                        >
+                            Enviar solicitud
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
+
 </section>
 
 {% endblock %}
 
+
+
 {% block extra_js %}
+
 <script>
-    var CONTACT_WHATSAPP = "{{ contact_info.whatsapp }}";
+
+    const CONTACT_WHATSAPP = "{{ contact_info.whatsapp }}";
+
 
     function enviarWhatsApp() {
-        var nombre = document.getElementById('id_nombre').value.trim();
-        var email = document.getElementById('id_email').value.trim();
-        var necesidad = document.getElementById('id_necesidad').value;
-        var mensaje = document.getElementById('id_mensaje').value.trim();
+
+        const nombre = document.getElementById("id_nombre").value.trim();
+        const email = document.getElementById("id_email").value.trim();
+        const necesidad = document.getElementById("id_necesidad").value;
+        const mensaje = document.getElementById("id_mensaje").value.trim();
+
 
         if (!nombre || !email || !necesidad || !mensaje) {
-            alert('Por favor completa los campos obligatorios.');
+
+            alert("Por favor completa los campos obligatorios.");
+
             return;
         }
+
 
         if (!CONTACT_WHATSAPP) {
-            alert('El canal de WhatsApp no está configurado todavía.');
+
+            alert("El canal de WhatsApp no está configurado todavía.");
+
             return;
         }
 
-        var empresa = document.getElementById('id_empresa').value.trim();
-        var telefono = document.getElementById('id_telefono').value.trim();
 
-        var texto = 'Hola, soy ' + nombre;
-        if (empresa) texto += '\nEmpresa: ' + empresa;
-        texto += '\nCorreo: ' + email;
-        if (telefono) texto += '\nTeléfono: ' + telefono;
-        texto += '\nNecesito: ' + necesidad;
-        texto += '\nMensaje: ' + mensaje;
+        const empresa = document.getElementById("id_empresa").value.trim();
+        const telefono = document.getElementById("id_telefono").value.trim();
 
-        window.open('https://wa.me/' + CONTACT_WHATSAPP + '?text=' + encodeURIComponent(texto), '_blank');
+
+        let texto = `Hola, soy ${nombre}`;
+
+
+        if (empresa) {
+            texto += `\nEmpresa: ${empresa}`;
+        }
+
+
+        texto += `\nCorreo: ${email}`;
+
+
+        if (telefono) {
+            texto += `\nTeléfono: ${telefono}`;
+        }
+
+
+        texto += `\nNecesito: ${necesidad}`;
+        texto += `\nMensaje: ${mensaje}`;
+
+
+        window.open(
+            `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(texto)}`,
+            "_blank"
+        );
+
     }
+
 </script>
+
 {% endblock %}
