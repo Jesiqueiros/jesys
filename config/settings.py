@@ -10,36 +10,14 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
-DEBUG = ENVIRONMENT == "development"
-SECRET_KEY = os.getenv("SECRET_KEY", "dev-insecure-key-change-in-production")
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 PERSONAL_NUMBER = os.getenv("PERSONAL_NUMBER", "").replace("+", "")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
 
-if ENVIRONMENT == "development":
-    ALLOWED_HOSTS = [
-        "localhost",
-        "127.0.0.1",
-        "0.0.0.0",
-    ]
-
-    CSRF_TRUSTED_ORIGINS = [
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-        "http://0.0.0.0:8000",
-    ]
-
-elif ENVIRONMENT == "production":
-    ALLOWED_HOSTS = [
-        "jesys.up.railway.app",
-        "jesyssolutions.com"
-    ]
-
-    CSRF_TRUSTED_ORIGINS = [
-        "https://jesys.up.railway.app",
-        "https://jesyssolutions.com"
-    ]
-
+if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -49,7 +27,8 @@ elif ENVIRONMENT == "production":
     SECURE_HSTS_SECONDS = 3600
 
 else:
-    raise ValueError("ENVIRONMENT no válido")
+    pass
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
