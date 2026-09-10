@@ -379,6 +379,18 @@
                 });
             });
         });
+
+        document.addEventListener('click', function (e) {
+            var dropdown = e.target.closest('.dropdown');
+            if (!dropdown) {
+                document.querySelectorAll('.dropdown').forEach(function (d) {
+                    var trigger = d.querySelector('[tabindex]');
+                    if (trigger) {
+                        trigger.blur();
+                    }
+                });
+            }
+        });
     </script>
 
     {% block extra_js %}{% endblock %}
