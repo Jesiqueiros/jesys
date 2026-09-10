@@ -10,14 +10,51 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+
+# ============================================================
+# ENVIRONMENT
+# ============================================================
+
+ENVIRONMENT = os.getenv("ENVIRONMENT", "local").lower()
+
+if ENVIRONMENT not in {"local", "production"}:
+    raise ValueError("ENVIRONMENT debe ser 'local' o 'production'")
+
+DEBUG = ENVIRONMENT == "local"
+
+
+# ============================================================
+# SECURITY
+# ============================================================
+
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-PERSONAL_NUMBER = os.getenv("PERSONAL_NUMBER", "").replace("+", "")
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv("ALLOWED_HOSTS", "").split(",")
+    if host.strip()
+]
 
-if not DEBUG:
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+    if origin.strip()
+]
+
+
+# ============================================================
+# APPLICATION
+# ============================================================
+
+PERSONAL_NUMBER = os.getenv("PERSONAL_NUMBER", "").replace("+", "")
+
+
+# ============================================================
+# PRODUCTION SECURITY
+# ============================================================
+
+if ENVIRONMENT == "production":
+
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -25,10 +62,8 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
 
     SECURE_HSTS_SECONDS = 3600
-
-else:
-    pass
-
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
 
 INSTALLED_APPS = [
     "django.contrib.admin",
